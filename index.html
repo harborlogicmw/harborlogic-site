@@ -197,6 +197,20 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     box-shadow: 0 4px 16px -4px rgba(59, 201, 183, 0.4);
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .nav-cta:hover {
@@ -205,6 +219,10 @@
     box-shadow: 0 6px 20px -4px rgba(59, 201, 183, 0.5);
     color: var(--ink-deep) !important;
     border-bottom: none !important;
+  }
+
+  .nav-cta:hover::after {
+    left: 200%;
   }
 
   /* Hamburger */
@@ -1207,8 +1225,8 @@
   .sr {
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-                transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 0.85s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .sr.visible {
