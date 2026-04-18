@@ -42,8 +42,8 @@
 
   body {
     font-family: 'Inter Tight', -apple-system, sans-serif;
-    background: var(--cream);
-    color: var(--ink);
+    background: var(--navy);
+    color: var(--cream);
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
@@ -54,7 +54,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle at 1px 1px, rgba(26,35,50,0.04) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(244,239,228,0.04) 1px, transparent 0);
     background-size: 24px 24px;
     pointer-events: none;
     z-index: 1;
@@ -67,7 +67,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid rgba(244, 239, 228, 0.08);
   }
 
   .wordmark {
@@ -75,11 +75,11 @@
     font-weight: 600;
     font-size: 18px;
     letter-spacing: -0.01em;
-    color: var(--navy);
+    color: var(--cream);
   }
 
   .wordmark em {
-    color: var(--teal);
+    color: var(--teal-light);
     font-style: normal;
   }
 
@@ -88,7 +88,7 @@
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: rgba(244, 239, 228, 0.5);
   }
 
   .container {
@@ -106,13 +106,15 @@
   .lede { position: relative; }
 
   .mark-wrap {
-    margin-bottom: 56px;
+    margin-bottom: 48px;
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+    margin-left: -24px;
   }
 
-  .mark-wrap svg {
-    width: 88px;
+  .mark-wrap img {
+    width: 240px;
     height: auto;
+    display: block;
   }
 
   .eyebrow {
@@ -120,7 +122,7 @@
     font-size: 11px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: var(--teal-light);
     font-weight: 600;
     margin-bottom: 24px;
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
@@ -131,7 +133,7 @@
     display: inline-block;
     width: 28px;
     height: 1px;
-    background: var(--teal);
+    background: var(--teal-light);
     vertical-align: middle;
     margin-right: 12px;
     transform: translateY(-2px);
@@ -143,7 +145,7 @@
     font-size: clamp(44px, 6vw, 84px);
     line-height: 1.02;
     letter-spacing: -0.03em;
-    color: var(--navy);
+    color: var(--cream);
     margin-bottom: 36px;
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both;
   }
@@ -151,7 +153,7 @@
   h1 em {
     font-style: italic;
     font-weight: 400;
-    color: var(--teal);
+    color: var(--teal-light);
   }
 
   .sub {
@@ -159,8 +161,8 @@
     font-weight: 400;
     font-size: 19px;
     line-height: 1.55;
-    color: var(--navy);
-    opacity: 0.72;
+    color: var(--cream);
+    opacity: 0.75;
     max-width: 44ch;
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both;
   }
@@ -169,8 +171,8 @@
     margin-top: 80px;
     height: 1px;
     width: 64px;
-    background: var(--navy);
-    opacity: 0.2;
+    background: var(--cream);
+    opacity: 0.3;
   }
 
   .pillars {
@@ -181,7 +183,7 @@
     font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: rgba(244, 239, 228, 0.55);
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.65s both;
   }
 
@@ -193,17 +195,17 @@
     content: '·';
     position: absolute;
     right: -20px;
-    color: var(--teal);
+    color: var(--teal-light);
   }
 
   .form-card {
-    background: var(--navy);
-    color: var(--cream);
+    background: var(--cream);
+    color: var(--ink);
     padding: 56px 48px;
     position: relative;
     overflow: hidden;
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s both;
-    box-shadow: 0 30px 80px -20px rgba(26, 35, 50, 0.25), 0 10px 30px -10px rgba(26, 35, 50, 0.15);
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.4), 0 10px 30px -10px rgba(0, 0, 0, 0.2);
   }
 
   .form-card::before {
@@ -231,7 +233,7 @@
     font-size: 11px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--teal-light);
+    color: var(--teal);
     font-weight: 600;
     margin-bottom: 12px;
   }
@@ -243,16 +245,17 @@
     line-height: 1.2;
     letter-spacing: -0.015em;
     margin-bottom: 8px;
+    color: var(--navy);
   }
 
   .form-title em {
     font-style: italic;
-    color: var(--teal-light);
+    color: var(--teal);
   }
 
   .form-note {
     font-size: 14px;
-    opacity: 0.65;
+    color: var(--muted);
     margin-bottom: 36px;
     line-height: 1.5;
   }
@@ -264,8 +267,8 @@
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--cream);
-    opacity: 0.6;
+    color: var(--navy);
+    opacity: 0.55;
     margin-bottom: 8px;
     font-weight: 500;
   }
@@ -275,8 +278,8 @@
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(244, 239, 228, 0.2);
-    color: var(--cream);
+    border-bottom: 1px solid rgba(26, 35, 50, 0.2);
+    color: var(--navy);
     font-family: 'Inter Tight', sans-serif;
     font-size: 15px;
     padding: 8px 0 12px;
@@ -287,12 +290,12 @@
   .field input:focus,
   .field textarea:focus {
     outline: none;
-    border-bottom-color: var(--teal-light);
+    border-bottom-color: var(--teal);
   }
 
   .field input::placeholder,
   .field textarea::placeholder {
-    color: rgba(244, 239, 228, 0.35);
+    color: rgba(26, 35, 50, 0.35);
   }
 
   .field textarea {
@@ -303,8 +306,8 @@
   .submit {
     margin-top: 32px;
     width: 100%;
-    background: var(--teal);
-    color: var(--navy-deep);
+    background: var(--navy);
+    color: var(--cream);
     border: none;
     padding: 18px 24px;
     font-family: 'Inter Tight', sans-serif;
@@ -319,7 +322,7 @@
     align-items: center;
   }
 
-  .submit:hover { background: var(--teal-light); }
+  .submit:hover { background: var(--teal); color: var(--navy-deep); }
   .submit:active { transform: translateY(1px); }
 
   .submit:disabled {
@@ -345,24 +348,24 @@
 
   .form-status.success {
     display: block;
-    background: rgba(61, 181, 164, 0.15);
-    border-left: 2px solid var(--teal-light);
-    color: var(--cream);
+    background: rgba(42, 157, 143, 0.12);
+    border-left: 2px solid var(--teal);
+    color: var(--navy);
   }
 
   .form-status.error {
     display: block;
-    background: rgba(220, 80, 80, 0.15);
+    background: rgba(220, 80, 80, 0.12);
     border-left: 2px solid #dc5050;
-    color: #ffcccc;
+    color: #8a2020;
   }
 
-  /* About section */
+  /* About section — flipped to cream */
   .about {
     position: relative;
     z-index: 2;
-    background: var(--navy);
-    color: var(--cream);
+    background: var(--cream);
+    color: var(--ink);
     padding: 96px 48px;
   }
 
@@ -380,7 +383,7 @@
     font-size: 11px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--teal-light);
+    color: var(--teal);
     font-weight: 600;
   }
 
@@ -389,7 +392,7 @@
     display: inline-block;
     width: 28px;
     height: 1px;
-    background: var(--teal-light);
+    background: var(--teal);
     vertical-align: middle;
     margin-right: 12px;
     transform: translateY(-2px);
@@ -402,11 +405,12 @@
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-top: 16px;
+    color: var(--navy);
   }
 
   .about-title em {
     font-style: italic;
-    color: var(--teal-light);
+    color: var(--teal);
   }
 
   .about-body {
@@ -414,7 +418,7 @@
     font-weight: 400;
     font-size: 19px;
     line-height: 1.7;
-    color: var(--cream);
+    color: var(--navy);
     opacity: 0.85;
   }
 
@@ -422,7 +426,7 @@
 
   .about-body em {
     font-style: italic;
-    color: var(--teal-light);
+    color: var(--teal);
   }
 
   footer {
@@ -435,20 +439,20 @@
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    color: var(--muted);
+    color: rgba(244, 239, 228, 0.55);
     letter-spacing: 0.05em;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid rgba(244, 239, 228, 0.1);
   }
 
   footer a {
-    color: var(--navy);
+    color: var(--cream);
     text-decoration: none;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid rgba(244, 239, 228, 0.2);
     padding-bottom: 2px;
     transition: border-color 0.25s ease;
   }
 
-  footer a:hover { border-bottom-color: var(--teal); }
+  footer a:hover { border-bottom-color: var(--teal-light); }
 
   @keyframes reveal {
     from {
@@ -469,8 +473,8 @@
       gap: 56px;
       padding: 48px 24px 32px;
     }
-    .mark-wrap { margin-bottom: 36px; }
-    .mark-wrap svg { width: 64px; }
+    .mark-wrap { margin-bottom: 32px; margin-left: -16px; }
+    .mark-wrap img { width: 180px; }
     h1 { font-size: clamp(40px, 9vw, 56px); }
     .lede-rule { margin-top: 48px; }
     .pillars { flex-wrap: wrap; gap: 20px 32px; }
@@ -504,42 +508,8 @@
 
   <section class="lede">
     <div class="mark-wrap">
-      <svg viewBox="140 75 232 265" xmlns="http://www.w3.org/2000/svg" aria-label="Harbor Logic mark">
-        <g stroke="#1a2332" stroke-width="8" fill="none" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M 160,95 L 352,95 L 352,220 Q 352,285 256,320 Q 160,285 160,220 Z"/>
-        </g>
-        <g stroke="#1a2332" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="256" cy="125" r="8"/>
-          <line x1="256" y1="133" x2="256" y2="220"/>
-          <line x1="230" y1="148" x2="282" y2="148"/>
-          <path d="M 212,195 Q 212,220 256,220 Q 300,220 300,195"/>
-          <path d="M 212,195 L 200,183"/>
-          <path d="M 212,195 L 224,207"/>
-          <path d="M 300,195 L 312,183"/>
-          <path d="M 300,195 L 288,207"/>
-        </g>
-        <g stroke="#2a9d8f" stroke-width="6" fill="none" stroke-linecap="round">
-          <path d="M 185,240 Q 203,230 220,240 T 256,240 T 292,240 T 327,240"/>
-          <path d="M 185,258 Q 203,248 220,258 T 256,258 T 292,258 T 327,258"/>
-        </g>
-        <g stroke="#2a9d8f" stroke-width="5" fill="#2a9d8f" stroke-linecap="round">
-          <line x1="256" y1="278" x2="256" y2="295" fill="none"/>
-          <circle cx="256" cy="298" r="4.5"/>
-          <line x1="196" y1="285" x2="316" y2="285" fill="none"/>
-          <line x1="256" y1="278" x2="256" y2="285" fill="none"/>
-          <line x1="226" y1="285" x2="226" y2="300" fill="none"/>
-          <circle cx="226" cy="303" r="4.5"/>
-          <line x1="196" y1="285" x2="196" y2="300" fill="none"/>
-          <circle cx="196" cy="303" r="4.5"/>
-          <line x1="286" y1="285" x2="286" y2="300" fill="none"/>
-          <circle cx="286" cy="303" r="4.5"/>
-          <line x1="316" y1="285" x2="316" y2="300" fill="none"/>
-          <circle cx="316" cy="303" r="4.5"/>
-        </g>
-      </svg>
+      <img src="harborlogic-logo.jpg" alt="Harbor Logic" width="240" height="240">
     </div>
-
-    <div class="eyebrow">Hospitality Consulting</div>
 
     <h1>
       Hospitality<br>
