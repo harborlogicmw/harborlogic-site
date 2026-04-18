@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbor Logic — Hospitality operations, engineered.</title>
+<meta name="description" content="Harbor Logic helps hospitality operators design and build the systems behind exceptional guest experiences. Northern Michigan consultancy.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Harbor Logic — Hospitality operations, engineered.">
+<meta property="og:description" content="We help restaurants, resorts, and clubs design the systems behind exceptional guest experiences — then build them alongside your team.">
+<meta property="og:image" content="https://harborlogic.cc/og-image.png">
+<meta property="og:url" content="https://harborlogic.cc">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-deep: #0f1620;
+    --teal: #2a9d8f;
+    --teal-light: #3db5a4;
+    --cream: #f4efe4;
+    --cream-warm: #e8e0cc;
+    --ink: #1a2332;
+    --muted: #6b7280;
+    --rule: rgba(26, 35, 50, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { min-height: 100%; }
+
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(26,35,50,0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .topbar {
+    position: relative;
+    z-index: 10;
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+
+  .wordmark em {
+    color: var(--teal);
+    font-style: normal;
+  }
+
+  .topbar-meta {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 48px 48px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .lede { position: relative; }
+
+  .mark-wrap {
+    margin-bottom: 56px;
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+  }
+
+  .mark-wrap svg {
+    width: 88px;
+    height: auto;
+  }
+
+  .eyebrow {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 24px;
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--teal);
+    vertical-align: middle;
+    margin-right: 12px;
+    transform: translateY(-2px);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(44px, 6vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    margin-bottom: 36px;
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s both;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--teal);
+  }
+
+  .sub {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--navy);
+    opacity: 0.72;
+    max-width: 44ch;
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both;
+  }
+
+  .lede-rule {
+    margin-top: 80px;
+    height: 1px;
+    width: 64px;
+    background: var(--navy);
+    opacity: 0.2;
+  }
+
+  .pillars {
+    margin-top: 24px;
+    display: flex;
+    gap: 32px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.65s both;
+  }
+
+  .pillars span {
+    position: relative;
+  }
+
+  .pillars span:not(:last-child)::after {
+    content: '·';
+    position: absolute;
+    right: -20px;
+    color: var(--teal);
+  }
+
+  .form-card {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s both;
+    box-shadow: 0 30px 80px -20px rgba(26, 35, 50, 0.25), 0 10px 30px -10px rgba(26, 35, 50, 0.15);
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .form-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 64px;
+    background: var(--teal);
+  }
+
+  .form-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .form-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 8px;
+  }
+
+  .form-title em {
+    font-style: italic;
+    color: var(--teal-light);
+  }
+
+  .form-note {
+    font-size: 14px;
+    opacity: 0.65;
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+
+  .field { margin-bottom: 20px; }
+
+  .field label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.6;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(244, 239, 228, 0.2);
+    color: var(--cream);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 15px;
+    padding: 8px 0 12px;
+    transition: border-color 0.25s ease;
+    resize: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--teal-light);
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: rgba(244, 239, 228, 0.35);
+  }
+
+  .field textarea {
+    min-height: 72px;
+    line-height: 1.5;
+  }
+
+  .submit {
+    margin-top: 32px;
+    width: 100%;
+    background: var(--teal);
+    color: var(--navy-deep);
+    border: none;
+    padding: 18px 24px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .submit:hover { background: var(--teal-light); }
+  .submit:active { transform: translateY(1px); }
+
+  .submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .submit .arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .submit:hover .arrow { transform: translateX(4px); }
+
+  .form-status {
+    margin-top: 20px;
+    font-size: 13px;
+    padding: 12px 16px;
+    border-radius: 2px;
+    display: none;
+  }
+
+  .form-status.success {
+    display: block;
+    background: rgba(61, 181, 164, 0.15);
+    border-left: 2px solid var(--teal-light);
+    color: var(--cream);
+  }
+
+  .form-status.error {
+    display: block;
+    background: rgba(220, 80, 80, 0.15);
+    border-left: 2px solid #dc5050;
+    color: #ffcccc;
+  }
+
+  /* About section */
+  .about {
+    position: relative;
+    z-index: 2;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 96px 48px;
+  }
+
+  .about-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .about-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    font-weight: 600;
+  }
+
+  .about-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--teal-light);
+    vertical-align: middle;
+    margin-right: 12px;
+    transform: translateY(-2px);
+  }
+
+  .about-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: 16px;
+  }
+
+  .about-title em {
+    font-style: italic;
+    color: var(--teal-light);
+  }
+
+  .about-body {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--cream);
+    opacity: 0.85;
+  }
+
+  .about-body p + p { margin-top: 20px; }
+
+  .about-body em {
+    font-style: italic;
+    color: var(--teal-light);
+  }
+
+  footer {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 48px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--rule);
+  }
+
+  footer a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: border-color 0.25s ease;
+  }
+
+  footer a:hover { border-bottom-color: var(--teal); }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 880px) {
+    .topbar { padding: 20px 24px; }
+    .topbar-meta { display: none; }
+    .container {
+      grid-template-columns: 1fr;
+      gap: 56px;
+      padding: 48px 24px 32px;
+    }
+    .mark-wrap { margin-bottom: 36px; }
+    .mark-wrap svg { width: 64px; }
+    h1 { font-size: clamp(40px, 9vw, 56px); }
+    .lede-rule { margin-top: 48px; }
+    .pillars { flex-wrap: wrap; gap: 20px 32px; }
+    .form-card { padding: 40px 28px; }
+    .about {
+      padding: 64px 24px;
+    }
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .about-title { font-size: 28px; }
+    .about-body { font-size: 17px; }
+    footer {
+      padding: 32px 24px;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wordmark">Harbor<em>·</em>Logic</div>
+  <div class="topbar-meta">Northern Michigan · Est. 2025</div>
+</div>
+
+<main class="container">
+
+  <section class="lede">
+    <div class="mark-wrap">
+      <svg viewBox="140 75 232 265" xmlns="http://www.w3.org/2000/svg" aria-label="Harbor Logic mark">
+        <g stroke="#1a2332" stroke-width="8" fill="none" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M 160,95 L 352,95 L 352,220 Q 352,285 256,320 Q 160,285 160,220 Z"/>
+        </g>
+        <g stroke="#1a2332" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="256" cy="125" r="8"/>
+          <line x1="256" y1="133" x2="256" y2="220"/>
+          <line x1="230" y1="148" x2="282" y2="148"/>
+          <path d="M 212,195 Q 212,220 256,220 Q 300,220 300,195"/>
+          <path d="M 212,195 L 200,183"/>
+          <path d="M 212,195 L 224,207"/>
+          <path d="M 300,195 L 312,183"/>
+          <path d="M 300,195 L 288,207"/>
+        </g>
+        <g stroke="#2a9d8f" stroke-width="6" fill="none" stroke-linecap="round">
+          <path d="M 185,240 Q 203,230 220,240 T 256,240 T 292,240 T 327,240"/>
+          <path d="M 185,258 Q 203,248 220,258 T 256,258 T 292,258 T 327,258"/>
+        </g>
+        <g stroke="#2a9d8f" stroke-width="5" fill="#2a9d8f" stroke-linecap="round">
+          <line x1="256" y1="278" x2="256" y2="295" fill="none"/>
+          <circle cx="256" cy="298" r="4.5"/>
+          <line x1="196" y1="285" x2="316" y2="285" fill="none"/>
+          <line x1="256" y1="278" x2="256" y2="285" fill="none"/>
+          <line x1="226" y1="285" x2="226" y2="300" fill="none"/>
+          <circle cx="226" cy="303" r="4.5"/>
+          <line x1="196" y1="285" x2="196" y2="300" fill="none"/>
+          <circle cx="196" cy="303" r="4.5"/>
+          <line x1="286" y1="285" x2="286" y2="300" fill="none"/>
+          <circle cx="286" cy="303" r="4.5"/>
+          <line x1="316" y1="285" x2="316" y2="300" fill="none"/>
+          <circle cx="316" cy="303" r="4.5"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="eyebrow">Hospitality Consulting</div>
+
+    <h1>
+      Hospitality<br>
+      operations,<br>
+      <em>engineered.</em>
+    </h1>
+
+    <p class="sub">
+      We help restaurants, resorts, and clubs design the systems behind exceptional guest experiences — then build them alongside your team.
+    </p>
+
+    <div class="lede-rule"></div>
+
+    <div class="pillars">
+      <span>Talk</span>
+      <span>Design</span>
+      <span>Build</span>
+    </div>
+  </section>
+
+  <aside class="form-card">
+    <div class="form-label">Get in touch</div>
+    <h2 class="form-title">Tell us what<br>you're <em>working on.</em></h2>
+    <p class="form-note">We'll read every note that comes in and reply within two business days.</p>
+
+    <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@company.com">
+      </div>
+      <div class="field">
+        <label for="business">Business</label>
+        <input type="text" id="business" name="business" required placeholder="Restaurant, resort, club, or project">
+      </div>
+      <div class="field">
+        <label for="note">What are you working on?</label>
+        <textarea id="note" name="note" rows="3" placeholder="A few sentences is plenty."></textarea>
+      </div>
+      <!-- Honeypot for spam -->
+      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+      <button type="submit" class="submit" id="submitBtn">
+        <span id="submitText">Send Inquiry</span>
+        <span class="arrow">→</span>
+      </button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </aside>
+
+</main>
+
+<section class="about">
+  <div class="about-inner">
+    <div>
+      <div class="about-label">About</div>
+      <h3 class="about-title">A different kind of <em>consultancy.</em></h3>
+    </div>
+    <div class="about-body">
+      <p>Most hospitality consultants arrive with a binder. We arrive with questions.</p>
+      <p>Harbor Logic works alongside owners, GMs, and F&B directors to find the two or three decisions actually holding their operation back — then designs and builds the systems to fix them. No eighty-page deliverables, no quarterly retainers for advice you already have.</p>
+      <p>Just clear thinking, specific tools, and the kind of work you can point at a year later and say: <em>that changed things.</em></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2025 Harbor Logic · Northern Michigan</div>
+  <div><a href="mailto:mwilson@harborlogic.cc">mwilson@harborlogic.cc</a></div>
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitText = document.getElementById('submitText');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitText.textContent = 'Sending...';
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        status.className = 'form-status success';
+        status.textContent = 'Thanks — your note is in. We\'ll be in touch within two business days.';
+        form.reset();
+        submitText.textContent = 'Sent';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      status.className = 'form-status error';
+      status.textContent = 'Something went wrong. Please email mwilson@harborlogic.cc directly.';
+      submitText.textContent = 'Send Inquiry';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
