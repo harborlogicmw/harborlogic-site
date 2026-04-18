@@ -274,10 +274,6 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 24px 48px 80px;
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 96px;
-    align-items: start;
   }
 
   .lede { position: relative; }
@@ -850,6 +846,31 @@
     border-top: 1px solid var(--hairline);
   }
 
+  /* ── CONTACT SECTION ── */
+  .contact-section {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+  }
+
+  .contact-section .form-card {
+    max-width: 640px;
+    margin: 0 auto;
+    animation: none;
+  }
+
   .about-cta {
     display: inline-flex;
     align-items: center;
@@ -1205,10 +1226,7 @@
     .topbar-meta { display: none; }
 
     .container {
-      grid-template-columns: 1fr;
-      gap: 48px;
       padding: 32px 24px 56px;
-      min-height: auto;
     }
 
 
@@ -1248,6 +1266,9 @@
     .transformation-arrow {
       transform: rotate(90deg);
     }
+
+    .contact-section { padding: 80px 24px; }
+    .contact-section .form-card { padding: 40px 28px; border-radius: 16px; }
   }
 </style>
 </head>
@@ -1312,37 +1333,6 @@
       <span>Build</span>
     </div>
   </section>
-
-  <aside class="form-card" id="contact">
-    <div class="form-label">Book an Audit</div>
-    <h2 class="form-title">Tell us what's<br>slowing <em>you down.</em></h2>
-    <p class="form-note">We'll review your note and respond within two business days with next steps.</p>
-
-    <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
-      <div class="field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Your name">
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@company.com">
-      </div>
-      <div class="field">
-        <label for="business">Business</label>
-        <input type="text" id="business" name="business" required placeholder="Restaurant, resort, club, or project">
-      </div>
-      <div class="field">
-        <label for="note">What are you working on?</label>
-        <textarea id="note" name="note" rows="3" placeholder="A few sentences is plenty."></textarea>
-      </div>
-      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
-      <button type="submit" class="submit" id="submitBtn">
-        <span id="submitText">Send Inquiry</span>
-        <span class="arrow">→</span>
-      </button>
-      <div class="form-status" id="formStatus"></div>
-    </form>
-  </aside>
 
 </main>
 
@@ -1436,6 +1426,40 @@
         <span class="arrow">→</span>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="form-card sr">
+    <div class="form-label">Book an Audit</div>
+    <h2 class="form-title">Tell us what's<br>slowing <em>you down.</em></h2>
+    <p class="form-note">We'll review your note and respond within two business days with next steps.</p>
+
+    <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@company.com">
+      </div>
+      <div class="field">
+        <label for="business">Business</label>
+        <input type="text" id="business" name="business" required placeholder="Restaurant, resort, club, or project">
+      </div>
+      <div class="field">
+        <label for="note">What are you working on?</label>
+        <textarea id="note" name="note" rows="3" placeholder="A few sentences is plenty."></textarea>
+      </div>
+      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+      <button type="submit" class="submit" id="submitBtn">
+        <span id="submitText">Send Inquiry</span>
+        <span class="arrow">→</span>
+      </button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
   </div>
 </section>
 
