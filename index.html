@@ -812,6 +812,111 @@
     color: var(--bone-muted);
   }
 
+  /* ── STORE / RESOURCES ── */
+  .store {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .store::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+  }
+
+  .store-header {
+    max-width: 1280px;
+    margin: 0 auto 72px;
+  }
+
+  .store-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .store-price {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--bone);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .store-price span {
+    font-size: 13px;
+    color: var(--bone-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .store-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 32px;
+    background: transparent;
+    border: 1px solid rgba(59, 201, 183, 0.3);
+    color: var(--teal);
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .store-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(59, 201, 183, 0.2), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .store-cta:hover {
+    background: rgba(59, 201, 183, 0.08);
+    border-color: rgba(59, 201, 183, 0.7);
+    box-shadow: 0 4px 16px -4px rgba(59, 201, 183, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .store-cta:hover::after {
+    left: 200%;
+  }
+
+  .store-cta .arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    transition: transform 0.25s ease;
+  }
+
+  .store-cta:hover .arrow {
+    transform: translateX(3px);
+  }
+
   /* ── ABOUT ── */
   .about {
     position: relative;
@@ -1336,6 +1441,9 @@
       grid-template-columns: 1fr;
       gap: 20px;
     }
+    
+    .store { padding: 80px 24px; }
+    .store-grid { grid-template-columns: 1fr; gap: 20px; }
     .transformation-arrow {
       transform: rotate(90deg);
     }
@@ -1362,6 +1470,7 @@
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services" onclick="closeNav()">Services</a></li>
+    <!-- <li><a href="#resources" onclick="closeNav()">Resources</a></li> -->
     <li><a href="#about" onclick="closeNav()">About</a></li>
     <li><a href="#contact" class="nav-cta" onclick="closeNav()">Book an Audit</a></li>
   </ul>
@@ -1449,6 +1558,48 @@
     </div>
   </div>
 </section>
+
+<!-- RESOURCES SECTION (HIDDEN FOR NOW) -->
+<!--
+<section class="store" id="resources">
+  <div class="store-header sr">
+    <div class="services-label">OS Library</div>
+    <h2 class="services-title">Plug-and-play <em>operating systems.</em></h2>
+  </div>
+  <div class="store-grid">
+    <div class="service-card sr">
+      <div class="service-step">Template / Google Sheets</div>
+      <h3 class="service-name">Daily Operations Dashboard</h3>
+      <div class="store-price">$149 <span>USD</span></div>
+      <p class="service-desc">The exact spreadsheet architecture we use to track labor, food costs, and daily revenue across multi-unit groups. Eliminates end-of-month surprises.</p>
+      <a href="#" class="store-cta" target="_blank">
+        <span>Get Access</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+    <div class="service-card sr">
+      <div class="service-step">Playbook / Notion Template</div>
+      <h3 class="service-name">Manager Onboarding OS</h3>
+      <div class="store-price">$99 <span>USD</span></div>
+      <p class="service-desc">A comprehensive 30-day training roadmap for new general managers. Includes shift checklists, cash-handling SOPs, and performance rubrics.</p>
+      <a href="#" class="store-cta" target="_blank">
+        <span>Get Access</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+    <div class="service-card sr">
+      <div class="service-step">Toolkit / Google Workspace</div>
+      <h3 class="service-name">Inventory Automation Kit</h3>
+      <div class="store-price">$195 <span>USD</span></div>
+      <p class="service-desc">Stop counting wine bottles on scrap paper. A complete digital inventory system designed to integrate directly with your POS exports.</p>
+      <a href="#" class="store-cta" target="_blank">
+        <span>Get Access</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+-->
 
 <!-- TRANSFORMATION SECTION -->
 <section class="transformation" id="results">
