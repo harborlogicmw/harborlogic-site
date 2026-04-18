@@ -345,12 +345,30 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     box-shadow: 0 8px 24px -8px rgba(59, 201, 183, 0.4);
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hero-cta:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px -8px rgba(59, 201, 183, 0.5);
+  }
+
+  .hero-cta:hover::after {
+    left: 200%;
   }
 
   .hero-cta .arrow {
@@ -555,12 +573,29 @@
     position: relative;
     z-index: 2;
     box-shadow: 0 8px 24px -8px rgba(59, 201, 183, 0.4);
+    overflow: hidden;
+  }
+
+  .submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .submit:hover {
     filter: brightness(1.08);
     box-shadow: 0 12px 32px -8px rgba(59, 201, 183, 0.5);
     transform: translateY(-1px);
+  }
+
+  .submit:hover::after {
+    left: 200%;
   }
 
   .submit:active { transform: translateY(0); }
@@ -570,6 +605,10 @@
     cursor: not-allowed;
     filter: none;
     transform: none;
+  }
+
+  .submit:disabled::after {
+    display: none;
   }
 
   .submit .arrow {
@@ -1038,6 +1077,21 @@
   .transformation-col {
     padding: 44px 36px;
     border-radius: 16px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .transformation-col:hover {
+    transform: translateY(-4px);
+  }
+
+  .transformation-col.before:hover {
+    border-color: rgba(220, 80, 80, 0.25);
+    box-shadow: 0 12px 40px -12px rgba(220, 80, 80, 0.08);
+  }
+
+  .transformation-col.after:hover {
+    border-color: rgba(59, 201, 183, 0.3);
+    box-shadow: 0 12px 40px -12px rgba(59, 201, 183, 0.12);
   }
 
   .transformation-col.before {
