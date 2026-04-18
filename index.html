@@ -944,6 +944,155 @@
     opacity: 0.7;
   }
 
+  /* ── TRANSFORMATION SECTION ── */
+  .transformation {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .transformation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+  }
+
+  .transformation-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .transformation-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .transformation-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+    vertical-align: middle;
+    margin-right: 14px;
+    transform: translateY(-2px);
+  }
+
+  .transformation-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--bone);
+    margin-bottom: 56px;
+  }
+
+  .transformation-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-soft) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .transformation-grid {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .transformation-col {
+    padding: 44px 36px;
+    border-radius: 16px;
+  }
+
+  .transformation-col.before {
+    background: linear-gradient(
+      145deg,
+      rgba(60, 30, 30, 0.3) 0%,
+      rgba(40, 20, 20, 0.3) 100%
+    );
+    border: 1px solid rgba(220, 80, 80, 0.1);
+  }
+
+  .transformation-col.after {
+    background: linear-gradient(
+      145deg,
+      rgba(30, 60, 55, 0.3) 0%,
+      rgba(20, 40, 38, 0.3) 100%
+    );
+    border: 1px solid rgba(59, 201, 183, 0.15);
+  }
+
+  .transformation-col-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .before .transformation-col-label { color: #ff9595; }
+  .after .transformation-col-label { color: var(--teal); }
+
+  .transformation-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .transformation-col li {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--bone-dim);
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .before li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: #ff9595;
+    font-size: 12px;
+    top: 3px;
+  }
+
+  .after li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 14px;
+    top: 2px;
+    font-weight: 700;
+  }
+
+  .transformation-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--teal);
+    opacity: 0.5;
+  }
+
   .footer-social {
     display: flex;
     gap: 16px;
@@ -1089,6 +1238,16 @@
     }
 
     .glow { width: 400px; height: 400px; }
+
+    .transformation { padding: 80px 24px; }
+    .transformation-title { font-size: 30px; margin-bottom: 36px; }
+    .transformation-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .transformation-arrow {
+      transform: rotate(90deg);
+    }
   }
 </style>
 </head>
@@ -1110,7 +1269,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#services" onclick="closeNav()">Services</a></li>
     <li><a href="#about" onclick="closeNav()">About</a></li>
-    <li><a href="#contact" class="nav-cta" onclick="closeNav()">Let's Talk</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeNav()">Book an Audit</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span>
@@ -1137,11 +1296,11 @@
     </h1>
 
     <p class="sub">
-      We help restaurants, resorts, and clubs design the systems their guest experience depends on — then build them alongside your team.
+      We replace scattered spreadsheets, disconnected tools, and gut-feel decisions with systems that actually run — then build them alongside your team.
     </p>
 
     <a href="#contact" class="hero-cta">
-      <span>Start a conversation</span>
+      <span>Book an operations audit</span>
       <span class="arrow">→</span>
     </a>
 
@@ -1155,9 +1314,9 @@
   </section>
 
   <aside class="form-card" id="contact">
-    <div class="form-label">Get in touch</div>
-    <h2 class="form-title">Tell us what<br>you're <em>working on.</em></h2>
-    <p class="form-note">We'll read every note that comes in and reply within two business days.</p>
+    <div class="form-label">Book an Audit</div>
+    <h2 class="form-title">Tell us what's<br>slowing <em>you down.</em></h2>
+    <p class="form-note">We'll review your note and respond within two business days with next steps.</p>
 
     <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
       <div class="field">
@@ -1202,7 +1361,7 @@
       </div>
       <div class="service-step">Step 01</div>
       <h3 class="service-name">Talk</h3>
-      <p class="service-desc">We start by listening. A focused conversation about what's working, what isn't, and what "better" looks like for your operation.</p>
+      <p class="service-desc">We start by listening — a focused conversation about what's working, what isn't, and where your team is losing time, money, or visibility.</p>
     </div>
     <div class="service-card sr">
       <div class="service-icon">
@@ -1213,7 +1372,7 @@
       </div>
       <div class="service-step">Step 02</div>
       <h3 class="service-name">Design</h3>
-      <p class="service-desc">We map the bottlenecks and sketch the systems — workflows, checklists, and tools — tailored to your team and your guests.</p>
+      <p class="service-desc">We map the bottlenecks and design the fix — dashboards, workflows, SOPs, checklists, and accountability structures tailored to your team.</p>
     </div>
     <div class="service-card sr">
       <div class="service-icon">
@@ -1223,7 +1382,38 @@
       </div>
       <div class="service-step">Step 03</div>
       <h3 class="service-name">Build</h3>
-      <p class="service-desc">We roll up our sleeves and build it alongside your team — training, implementing, and refining until the system runs itself.</p>
+      <p class="service-desc">We roll up our sleeves and build it alongside your team — training staff, implementing tools, and refining until the system runs without us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION SECTION -->
+<section class="transformation" id="results">
+  <div class="transformation-inner sr">
+    <div class="transformation-label">Real Results</div>
+    <h2 class="transformation-title">What changes when the <em>system works.</em></h2>
+    <div class="transformation-grid">
+      <div class="transformation-col before">
+        <div class="transformation-col-label">Before</div>
+        <ul>
+          <li>Weekly reports assembled by hand from four different systems</li>
+          <li>Inventory managed on spreadsheets updated once a week</li>
+          <li>Managers making decisions on gut feel and stale data</li>
+          <li>New hires trained differently depending on who's working</li>
+          <li>Problems discovered weeks after they started costing money</li>
+        </ul>
+      </div>
+      <div class="transformation-arrow">→</div>
+      <div class="transformation-col after">
+        <div class="transformation-col-label">After</div>
+        <ul>
+          <li>One live dashboard that shows what matters — updated in real time</li>
+          <li>Automated inventory tracking synced to POS and purchasing</li>
+          <li>Clear decision frameworks backed by data the team trusts</li>
+          <li>Standardized SOPs and training checklists for every role</li>
+          <li>Issues flagged the same day, before they become expensive</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -1238,10 +1428,11 @@
     <div class="about-body sr">
       <p>Most hospitality consultants arrive with a binder. We arrive with questions.</p>
       <p>Harbor Logic works alongside owners, GMs, and F&B directors to find the two or three decisions actually holding their operation back — then designs and builds the systems to fix them. No eighty-page deliverables. No quarterly retainers for advice you already have.</p>
+      <p>We've worked the floor, managed the books, and built the tech. That's the difference — we know what operators actually need because we've been operators.</p>
       <p>Clear thinking. Specific tools. Work you can point at a year later and say: <em>that changed things.</em></p>
       <p class="about-closer">If two or three decisions are holding you back, let's name them.</p>
       <a href="#contact" class="about-cta">
-        <span>Start a conversation</span>
+        <span>Book an operations audit</span>
         <span class="arrow">→</span>
       </a>
     </div>
