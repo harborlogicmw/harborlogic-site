@@ -106,28 +106,152 @@
     to { transform: translate(60px, -40px); }
   }
 
+  /* ── STICKY NAV ── */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+  }
+
+  .navbar.scrolled {
+    background: rgba(6, 10, 18, 0.82);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: 0 1px 0 var(--hairline), 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    filter: drop-shadow(0 0 12px rgba(59, 201, 183, 0.15));
+    transition: filter 0.3s ease;
+  }
+
+  .nav-brand:hover img {
+    filter: drop-shadow(0 0 20px rgba(59, 201, 183, 0.3));
+  }
+
+  .nav-wordmark {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: var(--bone);
+    opacity: 0.9;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone-muted);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--bone);
+    border-bottom-color: var(--teal);
+  }
+
+  .nav-cta {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-deep) !important;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    border: none;
+    border-bottom: none !important;
+    border-radius: 8px;
+    padding: 10px 22px !important;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 16px -4px rgba(59, 201, 183, 0.4);
+    text-decoration: none;
+  }
+
+  .nav-cta:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px -4px rgba(59, 201, 183, 0.5);
+    color: var(--ink-deep) !important;
+    border-bottom: none !important;
+  }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 110;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--bone);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Spacer for fixed nav */
+  .nav-spacer { height: 72px; }
+
   .topbar {
     position: relative;
     z-index: 10;
-    padding: 28px 48px;
+    padding: 12px 48px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  }
-
-  .wordmark {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 0.01em;
-    color: var(--bone);
-    opacity: 0.85;
-  }
-
-  .wordmark em {
-    color: var(--teal);
-    font-style: normal;
-    padding: 0 2px;
   }
 
   .topbar-meta {
@@ -157,19 +281,6 @@
 
   .lede { position: relative; }
 
-  .mark-wrap {
-    margin-bottom: 56px;
-    margin-left: -16px;
-    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
-  }
-
-  .mark-wrap img {
-    width: 280px;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 0 40px rgba(59, 201, 183, 0.15));
-  }
-
   h1 {
     font-family: 'Fraunces', serif;
     font-weight: 300;
@@ -188,6 +299,25 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+  }
+
+  h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 8px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q25 0 50 4 T100 4 T150 4 T200 4' fill='none' stroke='%233bc9b7' stroke-width='1.5' opacity='0.7'/%3E%3C/svg%3E") repeat-x;
+    background-size: 200px 8px;
+    animation: waveSlide 3s linear infinite;
+  }
+
+  @keyframes waveSlide {
+    0%   { background-position: 0 0; }
+    100% { background-position: 200px 0; }
   }
 
   .sub {
@@ -198,6 +328,42 @@
     color: var(--bone-dim);
     max-width: 44ch;
     animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color: var(--ink-deep);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 8px 24px -8px rgba(59, 201, 183, 0.4);
+    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+  }
+
+  .hero-cta:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -8px rgba(59, 201, 183, 0.5);
+  }
+
+  .hero-cta .arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .hero-cta:hover .arrow {
+    transform: translateX(4px);
   }
 
   .lede-rule {
@@ -229,7 +395,7 @@
     color: var(--teal);
   }
 
-  /* THE GLASS CARD */
+  /* ── GLASS CARD ── */
   .form-card {
     position: relative;
     padding: 52px 44px;
@@ -251,7 +417,6 @@
     overflow: hidden;
   }
 
-  /* Top sheen highlight - mimics light catching glass edge */
   .form-card::before {
     content: '';
     position: absolute;
@@ -267,7 +432,6 @@
     );
   }
 
-  /* Subtle teal accent glow inside card */
   .form-card::after {
     content: '';
     position: absolute;
@@ -443,7 +607,157 @@
     color: #ff9595;
   }
 
-  /* About section */
+  /* ── SERVICES SECTION ── */
+  .services {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+  }
+
+  .services-header {
+    max-width: 1280px;
+    margin: 0 auto 72px;
+  }
+
+  .services-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .services-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+    vertical-align: middle;
+    margin-right: 14px;
+    transform: translateY(-2px);
+  }
+
+  .services-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--bone);
+  }
+
+  .services-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-soft) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .services-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .service-card {
+    position: relative;
+    padding: 44px 36px;
+    border-radius: 16px;
+    background: linear-gradient(
+      145deg,
+      rgba(30, 42, 60, 0.4) 0%,
+      rgba(16, 24, 38, 0.4) 100%
+    );
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    border: 1px solid rgba(230, 226, 213, 0.06);
+    transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(230, 226, 213, 0.12),
+      transparent
+    );
+  }
+
+  .service-card:hover {
+    border-color: rgba(59, 201, 183, 0.2);
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 48px -16px rgba(0, 0, 0, 0.5),
+      0 0 60px -20px rgba(59, 201, 183, 0.1);
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(59, 201, 183, 0.15), rgba(59, 201, 183, 0.05));
+    border: 1px solid rgba(59, 201, 183, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 20px;
+    color: var(--teal);
+  }
+
+  .service-step {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .service-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    color: var(--bone);
+    margin-bottom: 14px;
+  }
+
+  .service-desc {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bone-muted);
+  }
+
+  /* ── ABOUT ── */
   .about {
     position: relative;
     z-index: 2;
@@ -524,6 +838,55 @@
     color: var(--teal-soft);
   }
 
+  .about-closer {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--bone);
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    background: transparent;
+    color: var(--teal);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: 1px solid rgba(59, 201, 183, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+
+  .about-cta:hover {
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color: var(--ink-deep);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(59, 201, 183, 0.4);
+  }
+
+  .about-cta .arrow {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .about-cta:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* ── FOOTER ── */
   footer {
     position: relative;
     z-index: 2;
@@ -531,27 +894,56 @@
     margin: 0 auto;
     padding: 40px 48px 56px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
     font-size: 12px;
     color: var(--bone-muted);
     letter-spacing: 0.05em;
     border-top: 1px solid var(--hairline);
+    text-align: center;
   }
 
-  footer a {
-    color: var(--bone-dim);
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-muted);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: color 0.25s ease, border-color 0.25s ease;
+    padding: 10px 20px;
+    border: 1px solid rgba(230, 226, 213, 0.08);
+    border-radius: 40px;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   }
 
-  footer a:hover {
+  .back-to-top:hover {
     color: var(--teal-soft);
-    border-bottom-color: var(--teal);
+    border-color: rgba(59, 201, 183, 0.3);
+    transform: translateY(-2px);
   }
 
+  .back-to-top .arrow-up {
+    font-size: 13px;
+    transition: transform 0.25s ease;
+  }
+
+  .back-to-top:hover .arrow-up {
+    transform: translateY(-3px);
+  }
+
+  .footer-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--bone-muted);
+    opacity: 0.7;
+  }
+
+  /* ── SCROLL REVEAL ── */
   @keyframes reveal {
     from {
       opacity: 0;
@@ -563,21 +955,102 @@
     }
   }
 
+  .sr {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .sr.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered delays for service cards */
+  .service-card:nth-child(1) { transition-delay: 0s; }
+  .service-card:nth-child(2) { transition-delay: 0.12s; }
+  .service-card:nth-child(3) { transition-delay: 0.24s; }
+
+  /* ── RESPONSIVE ── */
   @media (max-width: 880px) {
-    .topbar { padding: 20px 24px; }
+    .navbar { padding: 0 24px; height: 64px; }
+
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 280px;
+      height: 100vh;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 88px 32px 40px;
+      gap: 24px;
+      background: rgba(6, 10, 18, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-left: 1px solid var(--hairline);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 105;
+    }
+
+    .nav-links.open {
+      transform: translateX(0);
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-cta {
+      margin-top: 12px;
+      width: 100%;
+      text-align: center;
+      display: block;
+      padding: 14px 22px !important;
+    }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+    }
+
+    .nav-overlay.open {
+      display: block;
+    }
+
+    .nav-spacer { height: 64px; }
+    .topbar { padding: 8px 24px; }
     .topbar-meta { display: none; }
+
     .container {
       grid-template-columns: 1fr;
       gap: 48px;
       padding: 32px 24px 56px;
       min-height: auto;
     }
-    .mark-wrap { margin-bottom: 36px; margin-left: -8px; }
-    .mark-wrap img { width: 200px; }
+
+
     h1 { font-size: clamp(40px, 10vw, 60px); }
     .lede-rule { margin-top: 48px; }
     .pillars { flex-wrap: wrap; gap: 20px 36px; }
     .form-card { padding: 40px 28px; border-radius: 16px; }
+
+    .services { padding: 80px 24px; }
+    .services-title { font-size: 30px; }
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .service-card { padding: 36px 28px; }
+
     .about { padding: 80px 24px; }
     .about-inner {
       grid-template-columns: 1fr;
@@ -585,12 +1058,11 @@
     }
     .about-title { font-size: 30px; }
     .about-body { font-size: 18px; }
+
     footer {
       padding: 32px 24px;
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
     }
+
     .glow { width: 400px; height: 400px; }
   }
 </style>
@@ -601,6 +1073,29 @@
 <div class="glow one"></div>
 <div class="glow two"></div>
 
+<!-- Overlay for mobile nav -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- STICKY NAV -->
+<nav class="navbar" id="navbar">
+  <a href="#top" class="nav-brand">
+    <img src="harborlogic-logo.png" alt="Harbor Logic" width="36" height="36">
+    <span class="nav-wordmark">Harbor Logic</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services" onclick="closeNav()">Services</a></li>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeNav()">Let's Talk</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="nav-spacer" id="top"></div>
+
 <div class="topbar">
   <div class="topbar-meta">Northern Michigan <span class="dot">·</span> Est. 2025</div>
 </div>
@@ -608,9 +1103,7 @@
 <main class="container">
 
   <section class="lede">
-    <div class="mark-wrap">
-      <img src="harborlogic-logo.png" alt="Harbor Logic" width="240" height="240">
-    </div>
+
 
     <h1>
       Hospitality<br>
@@ -619,8 +1112,13 @@
     </h1>
 
     <p class="sub">
-      We help restaurants, resorts, and clubs design the systems behind exceptional guest experiences — then build them alongside your team.
+      We help restaurants, resorts, and clubs design the systems their guest experience depends on — then build them alongside your team.
     </p>
+
+    <a href="#contact" class="hero-cta">
+      <span>Start a conversation</span>
+      <span class="arrow">→</span>
+    </a>
 
     <div class="lede-rule"></div>
 
@@ -631,7 +1129,7 @@
     </div>
   </section>
 
-  <aside class="form-card">
+  <aside class="form-card" id="contact">
     <div class="form-label">Get in touch</div>
     <h2 class="form-title">Tell us what<br>you're <em>working on.</em></h2>
     <p class="form-note">We'll read every note that comes in and reply within two business days.</p>
@@ -664,26 +1162,79 @@
 
 </main>
 
-<section class="about">
-  <div class="about-inner">
-    <div>
-      <div class="about-label">About</div>
-      <h3 class="about-title">A different kind of <em>consultancy.</em></h3>
+<!-- SERVICES SECTION -->
+<section class="services" id="services">
+  <div class="services-header sr">
+    <div class="services-label">What We Do</div>
+    <h2 class="services-title">Three steps to <em>better operations.</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card sr">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <div class="service-step">Step 01</div>
+      <h3 class="service-name">Talk</h3>
+      <p class="service-desc">We start by listening. A focused conversation about what's working, what isn't, and what "better" looks like for your operation.</p>
     </div>
-    <div class="about-body">
-      <p>Most hospitality consultants arrive with a binder. We arrive with questions.</p>
-      <p>Harbor Logic works alongside owners, GMs, and F&B directors to find the two or three decisions actually holding their operation back — then designs and builds the systems to fix them. No eighty-page deliverables, no quarterly retainers for advice you already have.</p>
-      <p>Just clear thinking, specific tools, and the kind of work you can point at a year later and say: <em>that changed things.</em></p>
+    <div class="service-card sr">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div class="service-step">Step 02</div>
+      <h3 class="service-name">Design</h3>
+      <p class="service-desc">We map the bottlenecks and sketch the systems — workflows, checklists, and tools — tailored to your team and your guests.</p>
+    </div>
+    <div class="service-card sr">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      </div>
+      <div class="service-step">Step 03</div>
+      <h3 class="service-name">Build</h3>
+      <p class="service-desc">We roll up our sleeves and build it alongside your team — training, implementing, and refining until the system runs itself.</p>
     </div>
   </div>
 </section>
 
-<footer>
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="sr">
+      <div class="about-label">About</div>
+      <h3 class="about-title">We don't write reports.<br>We build <em>systems.</em></h3>
+    </div>
+    <div class="about-body sr">
+      <p>Most hospitality consultants arrive with a binder. We arrive with questions.</p>
+      <p>Harbor Logic works alongside owners, GMs, and F&B directors to find the two or three decisions actually holding their operation back — then designs and builds the systems to fix them. No eighty-page deliverables. No quarterly retainers for advice you already have.</p>
+      <p>Clear thinking. Specific tools. Work you can point at a year later and say: <em>that changed things.</em></p>
+      <p class="about-closer">If two or three decisions are holding you back, let's name them.</p>
+      <a href="#contact" class="about-cta">
+        <span>Start a conversation</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sr">
+  <a href="#top" class="back-to-top">
+    <span class="arrow-up">↑</span>
+    Back to top
+  </a>
   <div>© 2025 Harbor Logic · Northern Michigan</div>
-  <div><a href="mailto:mwilson@harborlogic.cc">mwilson@harborlogic.cc</a></div>
+  <div class="footer-tagline">Clear thinking. Specific tools. Lasting change.</div>
 </footer>
 
 <script>
+  // ── FORM HANDLER ──
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
   const submitText = document.getElementById('submitText');
@@ -713,11 +1264,63 @@
       }
     } catch (err) {
       status.className = 'form-status error';
-      status.textContent = 'Something went wrong. Please email mwilson@harborlogic.cc directly.';
+      status.textContent = 'Something went wrong. Please try again shortly.';
       submitText.textContent = 'Send Inquiry';
       submitBtn.disabled = false;
     }
   });
+
+  // ── STICKY NAV ──
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
+
+  // ── MOBILE NAV ──
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+    navOverlay.classList.toggle('open');
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  });
+
+  navOverlay.addEventListener('click', closeNav);
+
+  function closeNav() {
+    navToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── SCROLL REVEAL ──
+  const srElements = document.querySelectorAll('.sr');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  srElements.forEach(el => observer.observe(el));
 </script>
 
 </body>
