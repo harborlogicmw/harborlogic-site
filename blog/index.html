@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Insights — Harbor Logic | Systems Thinking for Hospitality</title>
+  <meta name="description" content="Expert insights on operations, systems design, and sustainable growth for restaurants and hospitality businesses. By Harbor Logic.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="icon" href="/harborlogic-logo.png" type="image/png">
+</head>
+<body>
+  <div class="atmosphere"></div>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="blog-navbar">
+    <a class="nav-brand" href="/index.html">
+      <img src="/harborlogic-logo.png" alt="Harbor Logic" width="36" height="36">
+      <span class="nav-wordmark">Harbor Logic</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/blog/index.html">Insights</a></li>
+      <li><a href="/index.html#contact" class="nav-cta">Start a Conversation</a></li>
+    </ul>
+  </nav>
+  <div class="nav-spacer"></div>
+
+  <!-- Hero -->
+  <header class="blog-hero sr">
+    <p class="blog-hero-label">Insights</p>
+    <h1 class="blog-hero-title">Operational <em>clarity</em>,<br>one idea at a time.</h1>
+    <p class="blog-hero-sub">Practical thinking on systems, processes, and sustainable growth for restaurants and hospitality teams.</p>
+  </header>
+
+  <!-- Grid -->
+  <section class="blog-grid">
+    <a href="/blog/why-your-restaurant-needs-an-operations-audit.html" class="article-card sr">
+      <span class="read-time">7 min read</span>
+      <h3>Why Your Restaurant Needs an Operations Audit</h3>
+      <p class="excerpt">Most restaurants run on momentum, not systems. An operations audit reveals what's working, what's quietly costing you, and where to start.</p>
+      <span class="read-link">Read Article <span class="arrow">→</span></span>
+    </a>
+
+    <a href="/blog/spreadsheets-vs-systems.html" class="article-card sr">
+      <span class="read-time">6 min read</span>
+      <h3>Spreadsheets vs. Systems: When Your Tools Outgrow the Job</h3>
+      <p class="excerpt">That master spreadsheet carried you far. Here's how to know when it's time to graduate — and what to build next.</p>
+      <span class="read-link">Read Article <span class="arrow">→</span></span>
+    </a>
+
+    <a href="/blog/the-real-cost-of-tribal-knowledge.html" class="article-card sr">
+      <span class="read-time">6 min read</span>
+      <h3>The Real Cost of Tribal Knowledge in Hospitality</h3>
+      <p class="excerpt">When only one person knows how something works, you don't have a system — you have a single point of failure.</p>
+      <span class="read-link">Read Article <span class="arrow">→</span></span>
+    </a>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter wide sr">
+    <div class="newsletter-card">
+      <h4>Stay in the current.</h4>
+      <p>Operational insights for hospitality leaders — no noise, just signal. Delivered monthly.</p>
+      <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="blog-footer">
+    <a href="#blog-navbar" class="back-to-top">↑ Back to Top</a>
+    <p class="footer-tagline">From Anchor to Horizon — systems that move with you.</p>
+    <p>© 2025 Harbor Logic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const nb = document.getElementById('blog-navbar');
+    window.addEventListener('scroll', () => { nb.classList.toggle('scrolled', window.scrollY > 32); });
+    // Mobile toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); overlay.classList.toggle('open'); });
+    overlay.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); });
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

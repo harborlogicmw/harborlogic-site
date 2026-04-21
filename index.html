@@ -837,10 +837,10 @@
   }
 
   .store-grid {
-    max-width: 1280px;
+    max-width: 900px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 28px;
   }
 
@@ -1470,8 +1470,9 @@
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services" onclick="closeNav()">Services</a></li>
-    <!-- <li><a href="#resources" onclick="closeNav()">Resources</a></li> -->
+    <li><a href="#resources" onclick="closeNav()">Resources</a></li>
     <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="blog/index.html" onclick="closeNav()">Insights</a></li>
     <li><a href="#contact" class="nav-cta" onclick="closeNav()">Book an Audit</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -1559,39 +1560,28 @@
   </div>
 </section>
 
-<!-- RESOURCES SECTION (HIDDEN FOR NOW) -->
-<!--
+<!-- RESOURCES SECTION -->
 <section class="store" id="resources">
   <div class="store-header sr">
-    <div class="services-label">OS Library</div>
-    <h2 class="services-title">Plug-and-play <em>operating systems.</em></h2>
+    <div class="services-label">Operator Toolkit</div>
+    <h2 class="services-title">Templates that <em>actually get used.</em></h2>
   </div>
   <div class="store-grid">
     <div class="service-card sr">
-      <div class="service-step">Template / Google Sheets</div>
-      <h3 class="service-name">Daily Operations Dashboard</h3>
-      <div class="store-price">$149 <span>USD</span></div>
-      <p class="service-desc">The exact spreadsheet architecture we use to track labor, food costs, and daily revenue across multi-unit groups. Eliminates end-of-month surprises.</p>
+      <div class="service-step">Spreadsheet / Excel</div>
+      <h3 class="service-name">Beverage Menu Builder</h3>
+      <div class="store-price">$19 <span>USD</span></div>
+      <p class="service-desc">Build and price new beverage menus from scratch. Drop in your pours, costs, and target margins — walk away with a print-ready menu and full cost breakdown.</p>
       <a href="#" class="store-cta" target="_blank">
         <span>Get Access</span>
         <span class="arrow">→</span>
       </a>
     </div>
     <div class="service-card sr">
-      <div class="service-step">Playbook / Notion Template</div>
-      <h3 class="service-name">Manager Onboarding OS</h3>
-      <div class="store-price">$99 <span>USD</span></div>
-      <p class="service-desc">A comprehensive 30-day training roadmap for new general managers. Includes shift checklists, cash-handling SOPs, and performance rubrics.</p>
-      <a href="#" class="store-cta" target="_blank">
-        <span>Get Access</span>
-        <span class="arrow">→</span>
-      </a>
-    </div>
-    <div class="service-card sr">
-      <div class="service-step">Toolkit / Google Workspace</div>
-      <h3 class="service-name">Inventory Automation Kit</h3>
-      <div class="store-price">$195 <span>USD</span></div>
-      <p class="service-desc">Stop counting wine bottles on scrap paper. A complete digital inventory system designed to integrate directly with your POS exports.</p>
+      <div class="service-step">Spreadsheet / Excel</div>
+      <h3 class="service-name">Cost of Goods Calculator</h3>
+      <div class="store-price">$19 <span>USD</span></div>
+      <p class="service-desc">A kitchen-ready COGS tracker that connects invoices to recipes. Know your actual food cost per plate — not the number you hope it is.</p>
       <a href="#" class="store-cta" target="_blank">
         <span>Get Access</span>
         <span class="arrow">→</span>
@@ -1599,7 +1589,6 @@
     </div>
   </div>
 </section>
--->
 
 <!-- TRANSFORMATION SECTION -->
 <section class="transformation" id="results">
@@ -1650,6 +1639,39 @@
         <span class="arrow">→</span>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- LATEST INSIGHTS -->
+<section class="services" id="insights" style="border-top: 1px solid var(--hairline);">
+  <div style="max-width:1280px;margin:0 auto;padding-bottom:20px;" class="sr">
+    <div class="services-label">Latest Insights</div>
+    <h2 class="services-title" style="margin-bottom:48px;">Practical thinking for <em>operators.</em></h2>
+  </div>
+  <div class="services-grid">
+    <a href="blog/why-your-restaurant-needs-an-operations-audit.html" class="service-card sr" style="text-decoration:none;display:flex;flex-direction:column;cursor:pointer;">
+      <div style="font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:16px;">7 min read</div>
+      <h4 class="service-name" style="font-size:20px;margin-bottom:12px;">Why Your Restaurant Needs an Operations Audit</h4>
+      <p class="service-desc" style="flex:1;">Most restaurants run on momentum, not systems. An operations audit reveals what's working and where to start.</p>
+      <span style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-top:16px;display:inline-flex;align-items:center;gap:8px;">Read Article <span style="font-family:'Fraunces',serif;font-size:15px;">→</span></span>
+    </a>
+    <a href="blog/spreadsheets-vs-systems.html" class="service-card sr" style="text-decoration:none;display:flex;flex-direction:column;cursor:pointer;">
+      <div style="font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:16px;">6 min read</div>
+      <h4 class="service-name" style="font-size:20px;margin-bottom:12px;">Spreadsheets vs. Systems</h4>
+      <p class="service-desc" style="flex:1;">That master spreadsheet carried you far. Here's how to know when it's time to graduate.</p>
+      <span style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-top:16px;display:inline-flex;align-items:center;gap:8px;">Read Article <span style="font-family:'Fraunces',serif;font-size:15px;">→</span></span>
+    </a>
+    <a href="blog/the-real-cost-of-tribal-knowledge.html" class="service-card sr" style="text-decoration:none;display:flex;flex-direction:column;cursor:pointer;">
+      <div style="font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:16px;">6 min read</div>
+      <h4 class="service-name" style="font-size:20px;margin-bottom:12px;">The Real Cost of Tribal Knowledge</h4>
+      <p class="service-desc" style="flex:1;">When only one person knows how something works, you don't have a system — you have a single point of failure.</p>
+      <span style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-top:16px;display:inline-flex;align-items:center;gap:8px;">Read Article <span style="font-family:'Fraunces',serif;font-size:15px;">→</span></span>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:48px;" class="sr">
+    <a href="blog/index.html" style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);text-decoration:none;border:1px solid rgba(59,201,183,0.25);padding:12px 28px;border-radius:8px;transition:all 0.25s ease;display:inline-flex;align-items:center;gap:10px;" onmouseover="this.style.borderColor='rgba(59,201,183,0.5)';this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='rgba(59,201,183,0.25)';this.style.transform='translateY(0)';">
+      View All Insights <span style="font-family:'Fraunces',serif;font-size:15px;">→</span>
+    </a>
   </div>
 </section>
 
