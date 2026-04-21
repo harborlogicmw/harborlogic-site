@@ -812,6 +812,32 @@
     color: var(--bone-muted);
   }
 
+  .service-deliverables {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(230, 226, 213, 0.08);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .service-deliverables li {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    color: var(--bone-dim);
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .service-deliverables li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-family: 'Fraunces', serif;
+  }
+
   /* ── STORE / RESOURCES ── */
   .store {
     position: relative;
@@ -1534,7 +1560,12 @@
       </div>
       <div class="service-step">Step 01</div>
       <h3 class="service-name">Talk (Industry Consulting)</h3>
-      <p class="service-desc">We don't just listen; we bring deep operational expertise to the table. Through targeted industry consulting, we quickly identify the specific friction points where your business is losing time, money, or visibility.</p>
+      <p class="service-desc">Establish stability through visibility and structure. We bring deep operational expertise to quickly identify friction points where you're losing time, money, or visibility.</p>
+      <ul class="service-deliverables">
+        <li>Systems Audit</li>
+        <li>Business Systems Map</li>
+        <li>Quick Wins Plan</li>
+      </ul>
     </div>
     <div class="service-card sr">
       <div class="service-icon">
@@ -1545,7 +1576,12 @@
       </div>
       <div class="service-step">Step 02</div>
       <h3 class="service-name">Design</h3>
-      <p class="service-desc">We map the bottlenecks and design the fix — dashboards, workflows, SOPs, checklists, and accountability structures tailored to your team.</p>
+      <p class="service-desc">Create flow by connecting people, processes, and tools. We map the bottlenecks and design custom dashboards, workflows, SOPs, and automation tailored to your team.</p>
+      <ul class="service-deliverables">
+        <li>Custom Notion Buildout</li>
+        <li>SOP Library Creation</li>
+        <li>Automation Setup</li>
+      </ul>
     </div>
     <div class="service-card sr">
       <div class="service-icon">
@@ -1555,7 +1591,12 @@
       </div>
       <div class="service-step">Step 03</div>
       <h3 class="service-name">Build</h3>
-      <p class="service-desc">We roll up our sleeves and build it alongside your team — training staff, implementing tools, and refining until the system runs without us.</p>
+      <p class="service-desc">We roll up our sleeves and build it alongside your team — transforming your business into a self-improving system driven by live data and intelligent workflows.</p>
+      <ul class="service-deliverables">
+        <li>Team Adoption Workshops</li>
+        <li>AI Workflow Design</li>
+        <li>Performance Dashboards</li>
+      </ul>
     </div>
   </div>
 </section>
