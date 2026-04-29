@@ -30,7 +30,7 @@
     --teal-deep: #2a9d8f;
     --bone: #e6e2d5;
     --bone-dim: rgba(230, 226, 213, 0.72);
-    --bone-muted: rgba(230, 226, 213, 0.42);
+    --bone-muted: rgba(230, 226, 213, 0.60);
     --bone-faint: rgba(230, 226, 213, 0.14);
     --hairline: rgba(230, 226, 213, 0.08);
   }
@@ -943,6 +943,59 @@
     transform: translateX(3px);
   }
 
+  /* ── EXPERTISE SECTION ── */
+  .expertise {
+    position: relative;
+    z-index: 2;
+    padding: 120px 48px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .expertise::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+  }
+
+  .expertise-header {
+    max-width: 1280px;
+    margin: 0 auto 56px;
+  }
+
+  .expertise-subhead {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--bone-dim);
+    max-width: 60ch;
+    margin-top: 20px;
+  }
+
+  .expertise-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .expertise-footnote {
+    max-width: 1000px;
+    margin: 36px auto 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bone-muted);
+  }
+
   /* ── ABOUT ── */
   .about {
     position: relative;
@@ -1470,6 +1523,9 @@
     
     .store { padding: 80px 24px; }
     .store-grid { grid-template-columns: 1fr; gap: 20px; }
+
+    .expertise { padding: 80px 24px; }
+    .expertise-grid { grid-template-columns: 1fr; gap: 20px; }
     .transformation-arrow {
       transform: rotate(90deg);
     }
@@ -1526,7 +1582,7 @@
     </h1>
 
     <p class="sub">
-      We replace scattered spreadsheets, disconnected tools, and gut-feel decisions with systems that actually run — then build them alongside your team.
+      18+ years on the floor, in the books, and behind the tech. We help Northern Michigan hospitality operators replace gut-feel management with systems that actually run — then build them alongside your team.
     </p>
 
     <a href="#contact" class="hero-cta">
@@ -1560,7 +1616,7 @@
       </div>
       <div class="service-step">Step 01</div>
       <h3 class="service-name">Talk (Industry Consulting)</h3>
-      <p class="service-desc">Establish stability through visibility and structure. We bring deep operational expertise to quickly identify friction points where you're losing time, money, or visibility.</p>
+      <p class="service-desc">We bring nearly two decades of multi-unit F&amp;B operations leadership — luxury Northern Michigan resorts, beverage distribution at the district level. We've built the schedules, run the P&amp;Ls, fired the vendors, and trained the GMs. The first conversation isn't a discovery call. It's two operators talking shop until the real problem surfaces.</p>
       <ul class="service-deliverables">
         <li>Systems Audit</li>
         <li>Business Systems Map</li>
@@ -1631,6 +1687,43 @@
   </div>
 </section>
 
+<!-- WHERE WE WORK BEST SECTION -->
+<section class="expertise">
+  <div class="expertise-header sr">
+    <div class="services-label">Expertise</div>
+    <h2 class="services-title">Where we <em>work best.</em></h2>
+    <p class="expertise-subhead">Food &amp; beverage is our native terrain. If you can run a tight restaurant operation, you can run anything — and we've spent nearly two decades proving it.</p>
+  </div>
+  <div class="expertise-grid">
+
+    <div class="service-card sr">
+      <div class="service-step">Beverage Program</div>
+      <h3 class="service-name">Beverage Program</h3>
+      <p class="service-desc">Your wine list hasn't moved in two years. Pour costs are a guess. Servers can name two things on the menu and three things on the list — in that order. We've built, audited, and retrained beverage programs at Northern Michigan resort properties and independent restaurants. We know what a working program looks like and what a drifting one costs.</p>
+    </div>
+
+    <div class="service-card sr">
+      <div class="service-step">Labor &amp; Scheduling</div>
+      <h3 class="service-name">Labor &amp; Scheduling</h3>
+      <p class="service-desc">You're overstaffed on Tuesday and scrambling on Friday. Overtime is a line item, not an exception. The schedule gets built Sunday night based on last week and a feeling. We diagnose labor model gaps — how schedules get built, who owns them, and what controlling them actually requires — and build the structure to make them repeatable.</p>
+    </div>
+
+    <div class="service-card sr">
+      <div class="service-step">GM Development</div>
+      <h3 class="service-name">GM Development</h3>
+      <p class="service-desc">You promoted your best server or cook into a management role. They're competent on the floor and invisible everywhere else. The operation runs when they're there and drifts when they're not. We've designed and built GM development systems from scratch — role definition, daily rhythms, KPI ownership, accountability structure. The goal: a manager who runs the operation, not just covers shifts.</p>
+    </div>
+
+    <div class="service-card sr">
+      <div class="service-step">Operations at Scale</div>
+      <h3 class="service-name">Operations at Scale</h3>
+      <p class="service-desc">Second location. New season. New ownership. The informal systems that worked at one unit or 12 employees stop working at two units or 40. We've operated multi-department resort F&amp;B at luxury Northern Michigan properties. We know exactly where the cracks appear — procurement, training, reporting, culture — and how to fill them before they cost you.</p>
+    </div>
+
+  </div>
+  <p class="expertise-footnote sr">Not in F&amp;B? We work with any small business that's outgrown gut-feel management. The systems are the same. The vocabulary changes.</p>
+</section>
+
 <!-- TRANSFORMATION SECTION -->
 <section class="transformation" id="results">
   <div class="transformation-inner sr">
@@ -1670,9 +1763,8 @@
       <h3 class="about-title">We don't write reports.<br>We build <em>systems.</em></h3>
     </div>
     <div class="about-body sr">
-      <p>Most hospitality consultants arrive with a binder. We arrive with questions.</p>
-      <p>Harbor Logic works alongside owners, GMs, and F&B directors to find the two or three decisions actually holding their operation back — then designs and builds the systems to fix them. No eighty-page deliverables. No quarterly retainers for advice you already have.</p>
-      <p>We've worked the floor, managed the books, and built the tech. That's the difference — we know what operators actually need because we've been operators.</p>
+      <p>Harbor Logic is run by an operator, not a consultant. 18+ years on the floor and in the books — multi-department F&amp;B at luxury Northern Michigan resorts, district-level beverage distribution, and the systems work behind all of it. We've built the schedules, run the P&amp;Ls, trained the GMs, and fixed the reporting blind spots that quietly cost operations tens of thousands a year.</p>
+      <p>Harbor Logic works alongside owners, GMs, and F&amp;B directors to find the two or three decisions actually holding their operation back — then designs and builds the systems to fix them. No eighty-page deliverables. No quarterly retainers for advice you already have.</p>
       <p>Clear thinking. Specific tools. Work you can point at a year later and say: <em>that changed things.</em></p>
       <p class="about-closer">If two or three decisions are holding you back, let's name them.</p>
       <a href="#contact" class="about-cta">
@@ -1724,6 +1816,7 @@
     <p class="form-note">We'll review your note and respond within two business days with next steps.</p>
 
     <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
+      <input type="text" name="_gotcha" style="display:none" />
       <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required placeholder="Your name">

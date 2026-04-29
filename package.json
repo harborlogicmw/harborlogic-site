@@ -1,0 +1,27 @@
+{
+  "name": "harborlogic-site",
+  "version": "1.0.0",
+  "description": "Single-page marketing site for Harbor Logic hospitality consultancy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harborlogicmw/harborlogic-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/harborlogicmw/harborlogic-site/issues"
+  },
+  "homepage": "https://github.com/harborlogicmw/harborlogic-site#readme",
+  "dependencies": {
+    "@notionhq/client": "^5.20.0",
+    "dotenv": "^17.4.2",
+    "marked": "^18.0.2",
+    "notion-to-md": "^3.1.9"
+  }
+}
