@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://harborlogic.cc/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://harborlogic.cc/blog/index.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://harborlogic.cc/blog/why-your-restaurant-needs-an-operations-audit.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harborlogic.cc/blog/spreadsheets-vs-systems.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://harborlogic.cc/blog/the-real-cost-of-tribal-knowledge.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+</urlset>

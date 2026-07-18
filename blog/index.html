@@ -17,13 +17,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/blog/blog.css">
-  <link rel="icon" href="/harborlogic-logo.png" type="image/png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta property="og:title" content="Insights — Harbor Logic | Systems Thinking for Hospitality">
   <meta property="og:description" content="Expert insights on operations, systems design, and sustainable growth for restaurants and hospitality businesses. By Harbor Logic.">
   <meta property="og:image" content="https://harborlogic.cc/og-image.png">
   <meta property="og:url" content="https://harborlogic.cc/blog/index.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://harborlogic.cc/blog/index.html">
 </head>
 <body>
   <div class="atmosphere"></div>
@@ -36,15 +38,16 @@
       <img src="/harborlogic-logo.png" alt="Harbor Logic" width="36" height="36">
       <span class="nav-wordmark">Harbor Logic</span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-overlay" id="navOverlay"></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#resources">Tools</a></li>
       <li><a href="/index.html#about">About</a></li>
       <li><a href="/blog/index.html">Insights</a></li>
-      <li><a href="/index.html#contact" class="nav-cta">Start a Conversation</a></li>
+      <li><a href="/index.html#contact" class="nav-cta">Book an Audit</a></li>
     </ul>
   </nav>
   <div class="nav-spacer"></div>
@@ -52,7 +55,7 @@
   <!-- Hero -->
   <header class="blog-hero sr">
     <p class="blog-hero-label">Consulting Briefs</p>
-    <h1 class="blog-hero-title">Field Notes from <em>industry experts.</em></h1>
+    <h1 class="blog-hero-title">Field Notes from <em>an operator.</em></h1>
     <p class="blog-hero-sub">Direct, pragmatic consulting insights on operations, systems, and sustainable growth for hospitality and service-driven teams.</p>
   </header>
 
@@ -86,6 +89,7 @@
       <h4>Stay in the current.</h4>
       <p>Operational insights for hospitality leaders — no noise, just signal. Delivered monthly.</p>
       <form class="newsletter-form" action="https://formspree.io/f/mykljkjo" method="POST">
+        <input type="hidden" name="_subject" value="Newsletter signup — harborlogic.cc">
         <input type="text" name="_gotcha" style="display:none" />
         <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
         <button type="submit">Subscribe</button>
@@ -96,8 +100,8 @@
   <!-- Footer -->
   <footer class="blog-footer">
     <a href="#blog-navbar" class="back-to-top">↑ Back to Top</a>
-    <p class="footer-tagline">From Anchor to Horizon — systems that move with you.</p>
-    <p>© 2025 Harbor Logic. All rights reserved.</p>
+    <p class="footer-tagline">Clear thinking. Specific tools. Lasting change.</p>
+    <p>© 2026 Harbor Logic. All rights reserved.</p>
   </footer>
 
   <script>
@@ -108,8 +112,8 @@
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     const overlay = document.getElementById('navOverlay');
-    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); overlay.classList.toggle('open'); });
-    overlay.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); });
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); overlay.classList.toggle('open'); toggle.setAttribute('aria-expanded', links.classList.contains('open')); });
+    overlay.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
     // Scroll reveal
     const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.sr').forEach(el => obs.observe(el));

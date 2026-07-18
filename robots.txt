@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harborlogic.cc/sitemap.xml

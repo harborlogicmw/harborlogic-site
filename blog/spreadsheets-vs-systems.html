@@ -17,13 +17,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/blog/blog.css">
-  <link rel="icon" href="/harborlogic-logo.png" type="image/png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta property="og:title" content="Spreadsheets vs. Systems — Harbor Logic">
   <meta property="og:description" content="That master spreadsheet carried you far. Here's how to know when it's time to graduate to a real operating system — and what to build next.">
   <meta property="og:image" content="https://harborlogic.cc/og-image.png">
   <meta property="og:url" content="https://harborlogic.cc/blog/spreadsheets-vs-systems.html">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://harborlogic.cc/blog/spreadsheets-vs-systems.html">
 </head>
 <body>
   <div class="reading-progress" id="readingProgress"></div>
@@ -36,15 +38,16 @@
       <img src="/harborlogic-logo.png" alt="Harbor Logic" width="36" height="36">
       <span class="nav-wordmark">Harbor Logic</span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-overlay" id="navOverlay"></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="/index.html#services">Services</a></li>
+      <li><a href="/index.html#resources">Tools</a></li>
       <li><a href="/index.html#about">About</a></li>
       <li><a href="/blog/index.html">Insights</a></li>
-      <li><a href="/index.html#contact" class="nav-cta">Start a Conversation</a></li>
+      <li><a href="/index.html#contact" class="nav-cta">Book an Audit</a></li>
     </ul>
   </nav>
   <div class="nav-spacer"></div>
@@ -116,14 +119,14 @@
 
     <blockquote><p>Minimal inputs, maximal signal. That's the standard.</p></blockquote>
     <div class="author-bio" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: var(--bone); opacity: 0.8; font-size: 0.95rem;">
-      <p><em>Written by the Harbor Logic Consulting Team — Experts in Hospitality and Operations Systems.</em></p>
+      <p><em>Written by Harbor Logic — 20 years of hospitality operations, systems, and leadership.</em></p>
     </div>
   </article>
 
   <section class="blog-cta sr">
     <div class="blog-cta-card">
       <h3>Facing a similar <em>bottleneck?</em></h3>
-      <p>Every operation is unique, but the symptoms of broken systems are universal. Let our industry consultants map out your specific friction points and design the fix.</p>
+      <p>Every operation is unique, but the symptoms of broken systems are universal. We'll map out your specific friction points and design the fix.</p>
       <a href="/index.html#contact" class="blog-cta-btn">Book a Consulting Call <span class="arrow">→</span></a>
     </div>
   </section>
@@ -133,6 +136,7 @@
       <h4>Stay in the current.</h4>
       <p>Operational insights for hospitality leaders — no noise, just signal.</p>
       <form class="newsletter-form" action="https://formspree.io/f/mykljkjo" method="POST">
+        <input type="hidden" name="_subject" value="Newsletter signup — harborlogic.cc">
         <input type="text" name="_gotcha" style="display:none" />
         <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
         <button type="submit">Subscribe</button>
@@ -160,8 +164,8 @@
 
   <footer class="blog-footer">
     <a href="#blog-navbar" class="back-to-top">↑ Back to Top</a>
-    <p class="footer-tagline">From Anchor to Horizon — systems that move with you.</p>
-    <p>© 2025 Harbor Logic. All rights reserved.</p>
+    <p class="footer-tagline">Clear thinking. Specific tools. Lasting change.</p>
+    <p>© 2026 Harbor Logic. All rights reserved.</p>
   </footer>
 
   <script>
@@ -175,8 +179,8 @@
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     const overlay = document.getElementById('navOverlay');
-    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); overlay.classList.toggle('open'); });
-    overlay.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); });
+    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); overlay.classList.toggle('open'); toggle.setAttribute('aria-expanded', links.classList.contains('open')); });
+    overlay.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
     const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
     document.querySelectorAll('.sr').forEach(el => obs.observe(el));
   </script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Harbor Logic</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-deep: #060a12;
+    --teal: #3bc9b7;
+    --teal-soft: #62d5c5;
+    --teal-deep: #2a9d8f;
+    --bone: #e6e2d5;
+    --bone-dim: rgba(230, 226, 213, 0.72);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--ink-deep);
+    color: var(--bone);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 20% 10%, rgba(59, 201, 183, 0.08), transparent 70%),
+      radial-gradient(ellipse 70% 60% at 85% 90%, rgba(59, 201, 183, 0.06), transparent 60%);
+  }
+  .wrap { max-width: 480px; }
+  img { width: 56px; height: 56px; border-radius: 8px; margin-bottom: 28px; }
+  .code {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 88px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .code em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--teal), var(--teal-soft));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  p { color: var(--bone-dim); font-size: 15px; line-height: 1.6; margin-bottom: 32px; }
+  a.home {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color: var(--ink-deep);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px -8px rgba(59, 201, 183, 0.4);
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  a.home:hover { transform: translateY(-2px); filter: brightness(1.1); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img src="/harborlogic-logo.png" alt="Harbor Logic">
+    <div class="code"><em>404</em></div>
+    <h1>This page drifted off the map.</h1>
+    <p>The page you're looking for doesn't exist or has moved. Let's get you back to open water.</p>
+    <a class="home" href="/">Back to Harbor Logic →</a>
+  </div>
+</body>
+</html>
