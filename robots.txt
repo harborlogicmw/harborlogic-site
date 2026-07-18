@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://harborlogic.cc/sitemap.xml
+Sitemap: https://www.harborlogic.cc/sitemap.xml
