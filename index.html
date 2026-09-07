@@ -890,10 +890,10 @@
   }
 
   .store-grid {
-    max-width: 900px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
     gap: 28px;
   }
 
@@ -1785,16 +1785,6 @@
         <span>Request preview</span>
         <span class="arrow">→</span>
       </a>
-    </div>
-
-    <div class="service-card sr" style="display: flex; flex-direction: column; opacity: 0.65; background: transparent; box-shadow: none; border: 1px solid rgba(230, 226, 213, 0.08);">
-      <div class="service-step">Spreadsheet / Excel</div>
-      <h3 class="service-name">Cost of Goods Calculator</h3>
-      <div class="store-price" style="margin-bottom: 16px;">$49 <span>USD</span></div>
-      <p class="service-desc" style="font-size: 14px;">A kitchen-ready COGS tracker that connects invoices to recipes. Know your actual food cost per plate — not the number you hope it is.</p>
-      <span class="store-cta" style="margin-top: auto; opacity: 0.55; cursor: default; pointer-events: none;">
-        <span>Coming Soon</span>
-      </span>
     </div>
 
   </div>
