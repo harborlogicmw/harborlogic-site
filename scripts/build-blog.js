@@ -9,6 +9,42 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const n2m = new NotionToMarkdown({ notionClient: notion });
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
+// Notion fields are author-supplied text. They are interpolated into HTML and
+// into an output path, so both need escaping before use.
+const BLOG_DIR = path.resolve(__dirname, "..", "blog");
+
+const HTML_ESCAPES = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;"
+};
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => HTML_ESCAPES[char]);
+}
+
+// Reduce a Notion slug to a single safe filename segment. Anything that could
+// walk out of blog/ (slashes, dots, backslashes) collapses to a hyphen.
+function safeSlug(rawSlug, fallback) {
+  const cleaned = String(rawSlug)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return cleaned || String(fallback).replace(/[^a-z0-9]+/gi, "-");
+}
+
+// Belt and braces: even with a sanitised slug, refuse to write outside blog/.
+function resolvePostPath(slug) {
+  const target = path.resolve(BLOG_DIR, `${slug}.html`);
+  if (path.dirname(target) !== BLOG_DIR) {
+    throw new Error(`Refusing to write outside blog/: ${target}`);
+  }
+  return target;
+}
+
 async function buildBlog() {
   console.log("Fetching posts from Notion...");
   const response = await notion.dataSources.query({
@@ -43,7 +79,7 @@ async function buildBlog() {
 
   for (const post of posts) {
     const title = post.properties.Name?.title[0]?.plain_text || "Untitled";
-    const slug = post.properties.Slug?.rich_text[0]?.plain_text || post.id;
+    const slug = safeSlug(post.properties.Slug?.rich_text[0]?.plain_text || post.id, post.id);
     const excerpt = post.properties.Excerpt?.rich_text[0]?.plain_text || "";
     let dateStr = post.properties.Date?.date?.start || "";
     
@@ -64,20 +100,22 @@ async function buildBlog() {
     const contentHtml = marked.parse(mdString.parent || "");
 
     let postHtml = template
-      .replace(/{{TITLE}}/g, title)
-      .replace(/{{EXCERPT}}/g, excerpt)
-      .replace(/{{SLUG}}/g, slug)
-      .replace(/{{DATE}}/g, dateStr)
-      .replace(/{{READ_TIME}}/g, readTime)
-      .replace(/{{CONTENT}}/g, contentHtml);
+      .replace(/{{TITLE}}/g, () => escapeHtml(title))
+      .replace(/{{EXCERPT}}/g, () => escapeHtml(excerpt))
+      .replace(/{{SLUG}}/g, () => escapeHtml(slug))
+      .replace(/{{DATE}}/g, () => escapeHtml(dateStr))
+      .replace(/{{READ_TIME}}/g, () => escapeHtml(readTime))
+      // CONTENT is already HTML from marked, so it is inserted as-is. The
+      // function form still avoids $-pattern expansion.
+      .replace(/{{CONTENT}}/g, () => contentHtml);
 
-    fs.writeFileSync(path.join(__dirname, `../blog/${slug}.html`), postHtml);
+    fs.writeFileSync(resolvePostPath(slug), postHtml);
 
     indexCardsHtml += `
     <a href="/blog/${slug}.html" class="article-card sr">
-      <span class="read-time">${readTime}</span>
-      <h3>${title}</h3>
-      <p class="excerpt">${excerpt}</p>
+      <span class="read-time">${escapeHtml(readTime)}</span>
+      <h3>${escapeHtml(title)}</h3>
+      <p class="excerpt">${escapeHtml(excerpt)}</p>
       <span class="read-link">Read Article <span class="arrow">→</span></span>
     </a>\n`;
   }
@@ -88,7 +126,7 @@ async function buildBlog() {
     let indexHtml = fs.readFileSync(indexPath, "utf-8");
     const gridRegex = /<section class="blog-grid">[\s\S]*?<\/section>/;
     const newGrid = `<section class="blog-grid">\n${indexCardsHtml}  </section>`;
-    indexHtml = indexHtml.replace(gridRegex, newGrid);
+    indexHtml = indexHtml.replace(gridRegex, () => newGrid);
     fs.writeFileSync(indexPath, indexHtml);
     console.log("Updated blog/index.html successfully.");
   } else {
