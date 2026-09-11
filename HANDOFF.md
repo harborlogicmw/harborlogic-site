@@ -1,5 +1,26 @@
 # Handoff — 2026-09-11
 
+## Deployment: production updates must go through a pull request
+
+Vercel blocked the direct push to `main` (`05f9723`, "Deployment was
+blocked") and never ran a build. The cause is the Git identity on the
+commit, not anything in the code: the Vercel project does not recognise
+the pushing account as an authorised member, and adding it requires a
+paid plan the owner does not want.
+
+Every production deploy that has ever succeeded on this project was a
+**pull request merged through GitHub**, which sets the committer to
+`GitHub <noreply@github.com>` and passes the check. Every direct push to
+`main` is blocked.
+
+So: never push straight to `main`. Branch, open a PR, merge it on
+GitHub. Branch pushes are fine — they build as previews and were
+verified working while diagnosing this.
+
+Ruled out during diagnosis, so nobody re-checks them: repository
+visibility (private is fine), the Vercel GitHub App grant, `vercel.json`,
+and commit-author attribution on GitHub.
+
 ## Codex integration update
 
 Work continues on `codex/integrate-claude-handoff`, based on Claude's `3141634`.
