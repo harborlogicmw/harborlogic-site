@@ -73,6 +73,21 @@ ok("text preserved (with & encoded)", out === "Save $5,000 $&amp; more");
 const buggy = "{{TITLE}}".replace(/{{TITLE}}/g, dollar);
 ok("old string form did expand $& (regression guard)", buggy.includes("{{TITLE}}"));
 
+console.log("--- JSON-LD encoding (jsonForScript) ---");
+{
+  const hostile = 'Ops & "Systems" </script><script>alert(1)</script>';
+  const enc = ctx.jsonForScript(hostile);
+  ok("cannot terminate the script block", !enc.includes("</script"));
+  ok("no raw < survives", !enc.includes("<"));
+  ok("round-trips to the original text", JSON.parse(enc) === hostile);
+  ok("ampersand stays literal (not HTML-encoded)", JSON.parse(ctx.jsonForScript("A & B")) === "A & B");
+  ok("emits its own surrounding quotes", enc.startsWith('"') && enc.endsWith('"'));
+  const tmpl = fs.readFileSync(path.join(BLOG_DIR, "_template.html"), "utf-8");
+  ok("template feeds JSON-LD from *_JSON placeholders", tmpl.includes("{{TITLE_JSON}}") && tmpl.includes("{{EXCERPT_JSON}}"));
+  ok("template declares a published date", tmpl.includes("{{DATE_ISO}}"));
+  ok("generator substitutes DATE_ISO", src.includes("{{DATE_ISO}}/g"));
+}
+
 console.log("--- existing published slugs are unaffected ---");
 for (const file of fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".html") && !f.startsWith("_") && f !== "index.html")) {
   const slug = file.replace(/\.html$/, "");

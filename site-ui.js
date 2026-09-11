@@ -53,3 +53,51 @@
     if (!mobile.matches && focusOnToggle) links.querySelector('a')?.focus();
   });
 })();
+
+/* Newsletter signup: submit inline instead of navigating to Formspree.
+   Without JavaScript the form still posts natively, so signup keeps working. */
+(() => {
+  const forms = document.querySelectorAll('form.newsletter-form');
+  if (!forms.length) return;
+
+  forms.forEach(form => {
+    const button = form.querySelector('button[type="submit"]');
+    const original = button ? button.textContent : '';
+
+    const status = document.createElement('p');
+    status.className = 'newsletter-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    form.insertAdjacentElement('afterend', status);
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending...';
+      }
+      status.className = 'newsletter-status';
+      status.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        status.className = 'newsletter-status success';
+        status.textContent = 'You’re on the list. New field notes land in your inbox.';
+        form.reset();
+        if (button) button.textContent = 'Subscribed';
+      } catch (err) {
+        status.className = 'newsletter-status error';
+        status.textContent = 'Something went wrong. Please try again or email info@harborlogic.cc.';
+        if (button) {
+          button.textContent = original;
+          button.disabled = false;
+        }
+      }
+    });
+  });
+})();
