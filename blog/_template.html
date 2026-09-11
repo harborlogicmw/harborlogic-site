@@ -26,6 +26,14 @@
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://www.harborlogic.cc/blog/{{SLUG}}.html">
+<link rel="stylesheet" href="/site-accessibility.css">
+<noscript><style>
+@media (max-width: 880px) {
+  .navbar { position: relative; height: auto; flex-wrap: wrap; padding-top: 16px; }
+  .nav-links { position: static; visibility: visible; transform: none; width: 100%; height: auto; padding: 24px 0; background: transparent; border: 0; }
+  .nav-toggle, .nav-spacer { display: none; }
+}
+</style></noscript>
 </head>
 <body>
   <div class="reading-progress" id="readingProgress"></div>
@@ -106,13 +114,7 @@
     });
     const nb = document.getElementById('blog-navbar');
     window.addEventListener('scroll', () => { nb.classList.toggle('scrolled', window.scrollY > 32); });
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    const overlay = document.getElementById('navOverlay');
-    toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); overlay.classList.toggle('open'); toggle.setAttribute('aria-expanded', links.classList.contains('open')); });
-    overlay.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
-    document.querySelectorAll('.sr').forEach(el => obs.observe(el));
-  </script>
+</script>
+<script src="/site-ui.js"></script>
 </body>
 </html>

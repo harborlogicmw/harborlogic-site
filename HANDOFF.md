@@ -1,5 +1,39 @@
 # Handoff — 2026-09-11
 
+## Codex integration update
+
+Work continues on `codex/integrate-claude-handoff`, based on Claude's `3141634`.
+The original local Codex branch remains intact. Nothing has been merged to main
+or deployed by this integration pass.
+
+- Preserved Claude's year-round positioning, Services page, founding pricing,
+  blog-generation security fixes, and report-only security headers.
+- Reimplemented shared keyboard navigation, Escape/focus handling, content
+  visibility, reduced-motion support, and no-JavaScript navigation fallback
+  across homepage, Services, workshops, and blog/template pages.
+- Added full main landmarks and skip links to the three main pages.
+- Preserved the owner's requested open panel treatment: removed the prominent
+  blue-gray surfaces, heavy shadows, and enclosing borders. The earlier claim
+  below that `30b8c2e` was superseded is incorrect: the Claude branch still had
+  those surfaces, and `f9c2aa9` predates the owner's subsequent visual request.
+- Standardized main-page audit CTAs as requests; retained response timing and
+  email recovery copy without reverting Claude's newer business positioning.
+
+Validation: all 19 blog security checks pass. Remaining integration checks are
+JavaScript syntax, shared asset references, and Git whitespace checks. This
+focused pass has not repeated the earlier browser checks against the newly
+integrated pages; responsive and keyboard browser verification remains needed.
+
+Next: browser QA (especially Services, no-JavaScript/reduced-motion, and the
+880–960px nav range), newsletter inline submission, blog landmarks/headings,
+then shared stylesheet extraction. Provider delivery/spam and deployed security
+headers still need verification. Do not enforce CSP or change repo visibility
+based solely on these notes. Reconcile and review before merging/deployment.
+
+The original Claude handoff below is retained as historical context; its
+instructions to reset/drop local work and its completed-work inventory are
+superseded by this update.
+
 State of `claude/harbor-logic-systems-first-usg53e` at `2593fae`, for whoever
 picks this up next.
 

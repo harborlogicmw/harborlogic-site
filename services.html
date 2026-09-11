@@ -438,50 +438,20 @@
     color: var(--teal);
   }
 
-  /* ── GLASS CARD ── */
+  /* ── CONTACT CONTENT ── */
   .form-card {
     position: relative;
-    padding: 52px 44px;
-    border-radius: 20px;
-    background: linear-gradient(
-      135deg,
-      rgba(30, 42, 60, 0.55) 0%,
-      rgba(16, 24, 38, 0.55) 100%
-    );
-    border: 1px solid rgba(230, 226, 213, 0.08);
-    box-shadow:
-      inset 0 1px 0 rgba(230, 226, 213, 0.06),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-      0 30px 60px -20px rgba(0, 0, 0, 0.6),
-      0 0 80px -20px rgba(59, 201, 183, 0.08);
-    animation: reveal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s both;
-    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: none;
   }
 
   .form-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(230, 226, 213, 0.2),
-      transparent
-    );
+    content: none;
   }
 
   .form-card::after {
-    content: '';
-    position: absolute;
-    top: -80px;
-    left: -80px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(59, 201, 183, 0.15), transparent 70%);
-    pointer-events: none;
+    content: none;
   }
 
   .form-label {
@@ -752,16 +722,15 @@
     overflow: visible;
   }
 
-  /* Cards you click keep a real surface, so a box means "interactive". */
+  /* Linked sections share the offer’s open layout, with a clear hover cue. */
   a.service-card {
-    padding: 36px 32px;
-    border: 1px solid rgba(230, 226, 213, 0.14);
-    border-radius: 14px;
-    background: linear-gradient(160deg, #202a3b 0%, #131b29 100%);
-    box-shadow:
-      inset 0 1px 0 rgba(230, 226, 213, 0.10),
-      0 24px 48px -28px rgba(0, 0, 0, 0.9);
-    transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    padding: 32px 0 0;
+    border: 0;
+    border-top: 1px solid var(--bone-faint);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    transition: border-color 0.2s ease;
   }
 
   .service-card::before {
@@ -774,7 +743,9 @@
     background: var(--teal);
   }
 
-  a.service-card::before { display: none; }
+  a.service-card::before {
+    display: block;
+  }
 
   .service-card:hover {
     transform: none;
@@ -782,12 +753,9 @@
   }
 
   a.service-card:hover {
-    border-color: rgba(59, 201, 183, 0.35);
-    transform: translateY(-4px);
-    box-shadow:
-      inset 0 1px 0 rgba(230, 226, 213, 0.10),
-      0 26px 54px -20px rgba(0, 0, 0, 0.75),
-      0 0 60px -22px rgba(59, 201, 183, 0.16);
+    border-color: var(--teal);
+    transform: none;
+    box-shadow: none;
   }
 
   .service-icon {
@@ -1307,41 +1275,32 @@
   }
 
   .transformation-col {
-    padding: 44px 36px;
-    border-radius: 16px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 32px 0 0;
+    border-radius: 0;
+    border-top: 1px solid var(--bone-faint);
   }
 
   .transformation-col:hover {
-    transform: translateY(-4px);
+    transform: none;
+    box-shadow: none;
   }
 
   .transformation-col.before:hover {
-    border-color: rgba(220, 80, 80, 0.25);
-    box-shadow: 0 12px 40px -12px rgba(220, 80, 80, 0.08);
+    transform: none;
+    box-shadow: none;
   }
 
   .transformation-col.after:hover {
-    border-color: rgba(59, 201, 183, 0.3);
-    box-shadow: 0 12px 40px -12px rgba(59, 201, 183, 0.12);
+    transform: none;
+    box-shadow: none;
   }
 
   .transformation-col.before {
-    background: linear-gradient(
-      145deg,
-      rgba(60, 30, 30, 0.3) 0%,
-      rgba(40, 20, 20, 0.3) 100%
-    );
-    border: 1px solid rgba(220, 80, 80, 0.1);
+    background: none;
   }
 
   .transformation-col.after {
-    background: linear-gradient(
-      145deg,
-      rgba(30, 60, 55, 0.3) 0%,
-      rgba(20, 40, 38, 0.3) 100%
-    );
-    border: 1px solid rgba(59, 201, 183, 0.15);
+    background: none;
   }
 
   .transformation-col-label {
@@ -1519,7 +1478,7 @@
     h1 { font-size: clamp(40px, 10vw, 60px); }
     .lede-rule { margin-top: 48px; }
     .pillars { flex-wrap: wrap; gap: 20px 36px; }
-    .form-card { padding: 40px 28px; border-radius: 16px; }
+    .form-card { padding: 0; }
 
     .services { padding: 80px 24px; }
     .services-title { font-size: 30px; }
@@ -1561,10 +1520,20 @@
     }
 
     .contact-section { padding: 80px 24px; }
-    .contact-section .form-card { padding: 40px 28px; border-radius: 16px; }
+    .contact-section .form-card { padding: 0; }
   }
-</style></head>
+  .editorial-note { margin-top: 32px; padding: 28px 0 0; border-top: 1px solid var(--bone-faint); }
+</style><link rel="stylesheet" href="/site-accessibility.css">
+<noscript><style>
+@media (max-width: 880px) {
+  .navbar { position: relative; height: auto; flex-wrap: wrap; padding-top: 16px; }
+  .nav-links { position: static; visibility: visible; transform: none; width: 100%; height: auto; padding: 24px 0; background: transparent; border: 0; }
+  .nav-toggle, .nav-spacer { display: none; }
+}
+</style></noscript>
+</head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="nav-overlay" id="navOverlay"></div>
 
@@ -1574,12 +1543,12 @@
     <span class="nav-wordmark">Harbor Logic</span>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html#offer" onclick="closeNav()">Harbor OS</a></li>
-    <li><a href="services.html" onclick="closeNav()">Services</a></li>
-    <li><a href="workshops.html" onclick="closeNav()">Workshops</a></li>
-    <li><a href="index.html#about" onclick="closeNav()">About</a></li>
-    <li><a href="blog/index.html" onclick="closeNav()">Insights</a></li>
-    <li><a href="index.html#contact" class="nav-cta" onclick="closeNav()">Free Audit</a></li>
+    <li><a href="index.html#offer">Harbor OS</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="blog/index.html">Insights</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Free Audit</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
     <span></span>
@@ -1594,7 +1563,8 @@
   <div class="topbar-meta">Systems First <span class="dot">&middot;</span> Tools Second <span class="dot">&middot;</span> Northern Michigan</div>
 </div>
 
-<main class="container">
+<main id="main-content" tabindex="-1">
+<div class="container">
 
   <section class="lede">
 
@@ -1619,7 +1589,7 @@
     </p>
 
     <a href="index.html#contact" class="hero-cta">
-      <span>Book Your Free Operations Audit</span>
+      <span>Request Your Free Operations Audit</span>
       <span class="arrow">&rarr;</span>
     </a>
 
@@ -1627,7 +1597,7 @@
 
   </section>
 
-</main>
+</div>
 
 <!-- WHAT I DO -->
 <section class="services" id="what">
@@ -1701,11 +1671,12 @@
       <div class="service-step">Start here</div>
       <h3 class="service-name">Free Operations Audit</h3>
       <p class="service-desc">90 minutes. Bring the part of the business that keeps you up at night.</p>
-      <span style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;margin-top:4px;">Book the audit <span class="arrow">&rarr;</span></span>
+      <span style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;margin-top:4px;">Request an audit <span class="arrow">&rarr;</span></span>
     </a>
   </div>
 </section>
 
+</main>
 <footer class="sr">
   <a href="#top" class="back-to-top">
     <span class="arrow-up">&uarr;</span>
@@ -1743,47 +1714,8 @@
     }
   }, { passive: true });
 
-  // ── MOBILE NAV ──
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  const navOverlay = document.getElementById('navOverlay');
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-    navOverlay.classList.toggle('open');
-    const isOpen = navLinks.classList.contains('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  navOverlay.addEventListener('click', closeNav);
-
-  function closeNav() {
-    navToggle.classList.remove('open');
-    navLinks.classList.remove('open');
-    navOverlay.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  // ── SCROLL REVEAL ──
-  const srElements = document.querySelectorAll('.sr');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  srElements.forEach(el => observer.observe(el));
 </script>
 
+<script src="/site-ui.js"></script>
 </body>
 </html>

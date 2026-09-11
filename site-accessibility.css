@@ -1,0 +1,35 @@
+/* Content remains readable when scripts are blocked or fail to load. */
+.sr, .sr.visible { opacity: 1; transform: none; }
+
+:where(a, button, input, textarea):focus-visible {
+  outline: 2px solid var(--teal, #3bc9b7);
+  outline-offset: 5px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 12px;
+  z-index: 1000;
+  padding: 12px 20px;
+  color: #060a12;
+  background: #e6e2d5;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+.contact-help { font-size: 16px; line-height: 1.6; margin: 0 0 28px; color: var(--bone-dim); }
+.contact-help a { color: var(--teal); }
+
+@media (max-width: 880px) {
+  /* Visibility also removes closed links from the keyboard tab order. */
+  .nav-links { visibility: hidden; overflow-y: auto; max-width: 100vw; }
+  .nav-links.open { visibility: visible; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
