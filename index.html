@@ -1541,6 +1541,16 @@
     .contact-section .form-card { padding: 0; }
   }
   .editorial-note { margin-top: 32px; padding: 28px 0 0; border-top: 1px solid var(--bone-faint); }
+
+  /* Concise founder introduction and scannable offer details. */
+  .founder-intro { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 48px 56px; }
+  .founder-intro p { max-width: 64ch; font-family: 'Fraunces', serif; font-size: 20px; line-height: 1.6; color: var(--bone-dim); margin-bottom: 14px; }
+  .founder-intro a { color: var(--teal); text-underline-offset: 4px; font-size: 14px; }
+  .service-inclusions { padding-left: 20px; margin: 18px 0; font-family: 'Inter Tight', sans-serif; font-size: 16px; line-height: 1.65; color: var(--bone-dim); }
+  .service-inclusions li + li { margin-top: 10px; }
+  .service-inclusions li::marker { color: var(--teal); }
+  .pricing-note { padding-top: 16px; border-top: 1px solid var(--hairline); }
+  @media (max-width: 880px) { .founder-intro { padding: 0 24px 40px; } }
 </style>
 <link rel="stylesheet" href="/site-accessibility.css">
 <noscript><style>
@@ -1633,7 +1643,7 @@
           <li>What the team figures out leaves when they do</li>
           <li>Everything important lives in your head</li>
           <li>You can&rsquo;t step away without decisions waiting for you</li>
-          <li>A business worth nothing without you in it</li>
+          <li>A business that is harder to hand over</li>
         </ul>
       </div>
       <div class="transformation-arrow">→</div>
@@ -1644,33 +1654,24 @@
           <li>What the team learns is captured before it walks out</li>
           <li>One connected business HQ holds every SOP, checklist, rule, and answer</li>
           <li>Your team has the answers without asking you</li>
-          <li>Exit-ready systems that hold their value year-round</li>
+          <li>Documented operations that are easier to hand over</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE PROBLEM, NAMED -->
-<section class="about" id="problem">
-  <div class="about-inner">
-    <div class="sr">
-      <div class="about-label">The Problem</div>
-      <h2 class="about-title">The business runs on<br>what&rsquo;s <em>in your head.</em></h2>
-    </div>
-    <div class="about-body sr">
-      <p>Most small businesses have the same problem, and nobody names it: the operation depends on the owner remembering. What gets done right depends on who is working that day. Training is someone following you around until they pick it up. When you are out, decisions wait. You are the continuity &mdash; which is why you cannot step back, cannot scale, and cannot stop.</p>
-      <p class="about-closer">It’s not a staffing problem. It’s a systems problem. And it’s <em>fixable.</em></p>
-    </div>
-  </div>
-</section>
-
+<!-- FOUNDER INTRODUCTION -->
+<aside class="founder-intro" aria-label="Meet your operator">
+  <p>I’m Mike Wilson. After 20 years in destination hospitality, I help owners turn operating experience into systems their teams can use.</p>
+  <a href="#about">More about my experience &rarr;</a>
+</aside>
 
 <!-- THE OFFER (Harbor OS) -->
 <section class="services" id="offer">
   <div class="services-header sr">
     <div class="services-label">The Offer</div>
-    <h2 class="services-title">One system. Built once. <em>Runs without you.</em></h2>
+    <h2 class="services-title">Built around your operation.<br><em>Less dependent on you.</em></h2>
     <p class="expertise-subhead" style="max-width:66ch;">Harbor OS organizes your operating knowledge &mdash; SOPs, checklists, training, workflows, business rules, and AI-ready context &mdash; into one usable system. It is the build we do most often for <strong style="font-weight:400;color:var(--bone);">seasonal operators</strong>, and the same approach fits a business that runs year round.</p>
     <div style="margin-top:26px;font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--bone-muted);">Built around the way you already work</div>
     <div style="display:flex;flex-wrap:wrap;row-gap:10px;margin-top:14px;max-width:66ch;font-family:'Inter Tight',sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--bone-dim);">
@@ -1691,7 +1692,13 @@
       <div class="service-step">Start here</div>
       <h3 class="service-name">Blueprint</h3>
       <div class="store-price" style="margin:6px 0 18px;">$1,500 <span>one-time</span></div>
-      <p class="service-desc">We map your business against the Five System Gaps, name the one constraint holding you back, and hand you the complete architecture plus the roadmap to build it. Build it yourself, or have us build it &mdash; and if you start your Build within 90 days, the full $1,500 comes off the price.</p>
+      <p class="service-desc">A clear plan you can build yourself or have us build.
+      </p>
+      <ul class="service-inclusions">
+        <li>Your business mapped against the Five System Gaps, with the priority constraint identified.</li>
+        <li>The complete system architecture and a roadmap to build it.</li>
+      </ul>
+      <p class="service-desc pricing-note">Start your Build within 90 days and the full $1,500 is credited toward the price.</p>
     </div>
 
     <div class="service-card sr">
@@ -1699,7 +1706,15 @@
       <h3 class="service-name">Build</h3>
       <div class="store-price" style="margin:6px 0 8px;">$5,000 <span>founding rate</span></div>
       <div style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.06em;color:var(--bone-muted);margin:-10px 0 20px;">$9,000 after the first three builds</div>
-      <p class="service-desc">A complete operating HQ built around the tools your business already uses, your SOPs documented and loaded, AI connected to approved business knowledge where it adds value, staff onboarding, team training, and 30 days of support. Built around your calendar, not ours.</p>
+      <p class="service-desc">An operating HQ built in the tools your business already uses.
+      </p>
+      <ul class="service-inclusions">
+        <li>Your SOPs documented and loaded into the system.</li>
+        <li>AI connected to approved business knowledge where it adds value.</li>
+        <li>Staff onboarding and team training.</li>
+        <li>30 days of support.</li>
+      </ul>
+      <p class="service-desc pricing-note">Built around your calendar.</p>
     </div>
 
     <div class="service-card sr">
@@ -1707,7 +1722,14 @@
       <h3 class="service-name">Partner</h3>
       <div class="store-price" style="margin:6px 0 8px;">$1,000 <span>/ month, founding</span></div>
       <div style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.06em;color:var(--bone-muted);margin:-10px 0 20px;">$1,800 / month thereafter</div>
-      <p class="service-desc">Your fractional systems lead on standing retainer: a quarterly operating rhythm, systems that keep pace as the business changes, and the knowledge capture that holds what your team learns — before they leave. Seasonal-flex billing available.</p>
+      <p class="service-desc">Your fractional systems lead on standing retainer.
+      </p>
+      <ul class="service-inclusions">
+        <li>A quarterly operating rhythm.</li>
+        <li>Systems updated as the business changes.</li>
+        <li>Ongoing capture of what your team learns.</li>
+      </ul>
+      <p class="service-desc pricing-note">Seasonal-flex billing available.</p>
     </div>
 
   </div>
@@ -1863,7 +1885,7 @@
       </div>
       <div class="field">
         <label for="business">Business</label>
-        <input type="text" id="business" name="business" required placeholder="Resort, marina, golf, venue, outfitter, seasonal retail…">
+        <input type="text" id="business" name="business" required placeholder="Your business name and type">
       </div>
       <div class="field">
         <label for="note">What does the business look like?</label>
