@@ -20,6 +20,16 @@
 .contact-help { font-size: 16px; line-height: 1.6; margin: 0 0 28px; color: var(--bone-dim); }
 .contact-help a { color: var(--teal); }
 
+/* Keep the expanded navigation readable with the shop entry on small laptops. */
+@media (min-width: 881px) and (max-width: 1150px) {
+  .navbar { padding-inline: 24px; }
+  .nav-brand { gap: 10px; flex-shrink: 0; }
+  .nav-wordmark { font-size: 12px; white-space: nowrap; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.12em; white-space: nowrap; }
+  .nav-links .nav-cta { padding-inline: 14px !important; }
+}
+
 @media (max-width: 880px) {
   /* Visibility also removes closed links from the keyboard tab order. */
   .nav-links { visibility: hidden; overflow-y: auto; max-width: 100vw; }
