@@ -38,12 +38,35 @@ builds a preview and is a safe way to confirm Vercel is responding.
 - Keep every page's `<title>` and `<h1>` distinct; two pages shared an `<h1>`
   once and it had to be caught manually.
 
+## Security headers
+
+`vercel.json` sets the response headers, including a **Content-Security-Policy
+that is enforced**, not report-only, as of 2026-09-30.
+
+Before enforcing it, every page was loaded in headless Chromium against a local
+server sending the exact policy, and produced no violations. The detector was
+proved to fire first by planting script, stylesheet, image and object
+violations. The third-party origins the site needs (fonts.googleapis.com,
+fonts.gstatic.com, googletagmanager.com, google-analytics.com, `data:` images)
+were each confirmed to pass the allowlist.
+
+The policy carries **no `report-uri` or `report-to`**, so violations surface only
+in the visitor's console and are not collected anywhere. If you add third-party
+embeds, widgets, or a tag manager container that injects new origins, they will
+be blocked silently from the site's point of view. Add the origin to the matching
+directive when you add the tool.
+
+One known blind spot: if Google Signals or ads features are enabled on the GA4
+property, GA can beacon to `stats.g.doubleclick.net` and `*.analytics.google.com`,
+which are not in `connect-src`. Core analytics (`google-analytics.com`,
+`region1.google-analytics.com`) is covered. If analytics volume drops after
+enforcement, add those origins to `connect-src` rather than assuming the tag
+broke.
+
+To roll back, rename the header key to `Content-Security-Policy-Report-Only`.
+
 ## Known open items
 
-- Skip links and `<main>` landmarks exist on the three main pages but not on the
-  blog pages or 404.
-- The newsletter form on blog pages is a native POST, so subscribing navigates
-  the reader off-site. The audit and workshop forms submit inline.
-- The nav wraps to two lines between roughly 880px and 960px.
-- `vercel.json` sets a Content-Security-Policy in report-only mode. It has never
-  been observed on a live response and should be verified before being enforced.
+- None outstanding. The previous entries (skip links and `<main>` on blog pages
+  and 404, the blog newsletter posting natively off-site, nav wrapping between
+  880px and 960px, and the unverified CSP) have all been resolved and verified.
