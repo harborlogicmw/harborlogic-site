@@ -135,7 +135,7 @@ async function buildBlog() {
     indexCardsHtml += `
     <a href="/blog/${slug}.html" class="article-card sr">
       <span class="read-time">${escapeHtml(readTime)}</span>
-      <h3>${escapeHtml(title)}</h3>
+      <h2>${escapeHtml(title)}</h2>
       <p class="excerpt">${escapeHtml(excerpt)}</p>
       <span class="read-link">Read Article <span class="arrow">→</span></span>
     </a>\n`;

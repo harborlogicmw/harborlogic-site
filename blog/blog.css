@@ -105,7 +105,7 @@ body {
   border-color: var(--teal); transform: none; box-shadow: none;
 }
 .article-card .read-time { font-family: 'Inter Tight', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 16px; }
-.article-card h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; letter-spacing: -0.02em; color: var(--bone); margin-bottom: 14px; line-height: 1.2; }
+.article-card h3, .article-card h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; letter-spacing: -0.02em; color: var(--bone); margin-bottom: 14px; line-height: 1.2; }
 .article-card .excerpt { font-family: 'Fraunces', serif; font-size: 15px; line-height: 1.6; color: var(--bone-muted); flex: 1; margin-bottom: 24px; }
 .article-card .read-link { font-family: 'Inter Tight', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.25s ease; }
 .article-card:hover .read-link { gap: 12px; }
@@ -159,7 +159,7 @@ body {
   background: none; box-shadow: none;
   text-align: left;
 }
-.newsletter-card h4 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--bone); margin-bottom: 8px; }
+.newsletter-card h3, .newsletter-card h4 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--bone); margin-bottom: 8px; }
 .newsletter-card p { font-family: 'Fraunces', serif; font-size: 14px; color: var(--bone-muted); margin-bottom: 24px; }
 .newsletter-form { display: flex; gap: 12px; max-width: 480px; margin: 0; }
 .newsletter-form input[type="email"] { flex: 1; background: rgba(6,10,18,0.4); border: 1px solid rgba(230,226,213,0.08); border-radius: 10px; color: var(--bone); font-family: 'Inter Tight', sans-serif; font-size: 14px; padding: 14px 16px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
