@@ -20,13 +20,14 @@
 .contact-help { font-size: 16px; line-height: 1.6; margin: 0 0 28px; color: var(--bone-dim); }
 .contact-help a { color: var(--teal); }
 
-/* Keep the expanded navigation readable with the shop entry on small laptops. */
+/* Keep the expanded navigation readable on small laptops: seven entries, one of
+   them the two-word "Services & Pricing" label, plus the shop entry. */
 @media (min-width: 881px) and (max-width: 1150px) {
   .navbar { padding-inline: 24px; }
   .nav-brand { gap: 10px; flex-shrink: 0; }
   .nav-wordmark { font-size: 12px; white-space: nowrap; }
-  .nav-links { gap: 16px; }
-  .nav-links a { font-size: 10px; letter-spacing: 0.12em; white-space: nowrap; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.06em; white-space: nowrap; }
   .nav-links .nav-cta { padding-inline: 14px !important; }
 }
 
@@ -43,3 +44,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Pricing presentation: shared by the existing page styles. */
+.pricing-followup { max-width:1280px; margin:32px auto 0; }
+.pricing-followup p, .pricing-terms { font-size:16px; line-height:1.65; color:var(--bone-dim); margin-top:20px; max-width:75ch; }
+.pricing-followup .about-cta { margin:8px 16px 8px 0; }
+.pricing-deliverables { padding-left:20px; margin:20px 0; font-size:16px; line-height:1.65; color:var(--bone-dim); }
+.pricing-deliverables li + li { margin-top:8px; }
+.pricing-grid .service-desc { font-size:16px; }
+#pricing, #process { scroll-margin-top:110px; }
+@media (max-width:480px) { .pricing-followup .about-cta { display:flex; justify-content:center; text-align:center; margin-right:0; letter-spacing:0.03em; } }
