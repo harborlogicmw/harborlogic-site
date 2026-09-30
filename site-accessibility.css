@@ -19,6 +19,8 @@
 .skip-link:focus { transform: none; }
 .contact-help { font-size: 16px; line-height: 1.6; margin: 0 0 28px; color: var(--bone-dim); }
 .contact-help a { color: var(--teal); }
+.footer-privacy { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer-privacy:hover { color: var(--teal, #3bc9b7); }
 
 /* Keep the expanded navigation readable on small laptops: seven entries, one of
    them the two-word "Services & Pricing" label, plus the shop entry. */

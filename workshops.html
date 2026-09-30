@@ -1666,8 +1666,8 @@
     <div class="about-body sr">
       <p>AI usually isn&rsquo;t the real problem. The harder problem is scattered business knowledge, inconsistent processes, and important decisions living in people&rsquo;s heads. Harbor Logic helps businesses organize that knowledge and turn repeated work into systems that people &mdash; and AI &mdash; can actually use.</p>
       <p class="about-closer">Systems first. <em>Tools second.</em></p>
-      <a href="index.html#offer" class="about-cta">
-        <span>See Harbor OS</span>
+      <a href="services.html" class="about-cta">
+        <span>See how I help</span>
         <span class="arrow">&rarr;</span>
       </a>
     </div>
@@ -1727,7 +1727,7 @@
       </svg>
     </a>
   </div>
-  <div>&copy; 2026 Harbor Logic &middot; Northern Michigan</div>
+  <div>&copy; 2026 Harbor Logic &middot; Northern Michigan &middot; <a href="privacy.html" class="footer-privacy">Privacy</a></div>
   <div class="footer-tagline">Clear thinking. Simple systems. Lasting change.</div>
 </footer>
 
@@ -1757,6 +1757,7 @@
         status.textContent = 'You\'re on the list — I\'ll send the date, venue, and registration link as soon as they\'re confirmed.';
         form.reset();
         submitText.textContent = 'You\'re On The List';
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'workshop_updates' });
       } else {
         throw new Error('Submission failed');
       }

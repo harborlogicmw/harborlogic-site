@@ -26,8 +26,13 @@ builds a preview and is a safe way to confirm Vercel is responding.
   its `.sr` rule loses the cascade and scroll-reveal content stays invisible
   without JavaScript.
 - All forms post to the same Formspree endpoint, separated only by `_subject`.
-- Analytics carries `gtag('js')` and `gtag('config')` only. No form data reaches
-  analytics, and there is no conversion tracking.
+- Analytics carries `gtag('js')`, `gtag('config')`, and one `generate_lead` event
+  fired after a successful form submission, with a `form_name` of
+  `operations_audit`, `workshop_updates`, or `newsletter`. No form field values
+  reach analytics. Mark `generate_lead` as a key event in GA4 to report on it.
+- `privacy.html` describes the forms, analytics, and third parties. Update it when
+  you add a tool that collects or receives visitor data, and link it from every
+  footer (the blog footer comes from `blog/_template.html`).
 - `scripts/build-blog.js` regenerates the cards in `blog/index.html` and emits
   `class="article-card sr"`, so template changes must be mirrored there.
 

@@ -18,6 +18,7 @@ whatever tools a client already uses.
 /
 ├── index.html              # The homepage — the whole marketing site
 ├── 404.html                # Not-found page (noindex)
+├── privacy.html            # Privacy policy (linked from every footer)
 ├── favicon.ico             # Browser tab icon
 ├── apple-touch-icon.png    # iOS home screen icon
 ├── harborlogic-logo.png    # Logo used in the nav and on 404

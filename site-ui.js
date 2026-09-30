@@ -90,6 +90,7 @@
         status.textContent = 'You’re on the list. New field notes land in your inbox.';
         form.reset();
         if (button) button.textContent = 'Subscribed';
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'newsletter' });
       } catch (err) {
         status.className = 'newsletter-status error';
         status.textContent = 'Something went wrong. Please try again or email info@harborlogic.cc.';
