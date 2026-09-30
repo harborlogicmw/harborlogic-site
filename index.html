@@ -530,6 +530,7 @@
   }
 
   .field input,
+  .field select,
   .field textarea {
     width: 100%;
     background: rgba(6, 10, 18, 0.4);
@@ -544,11 +545,13 @@
   }
 
   .field input:hover,
+  .field select:hover,
   .field textarea:hover {
     border-color: rgba(230, 226, 213, 0.15);
   }
 
   .field input:focus,
+  .field select:focus,
   .field textarea:focus {
     outline: none;
     border-color: rgba(59, 201, 183, 0.4);
@@ -1674,6 +1677,7 @@
     <h2 class="services-title">Start with the work that keeps <em>coming back to you.</em></h2>
     <p class="expertise-subhead">Repeated questions. Inconsistent handoffs. Work that waits until you have time. We find where the operation gets stuck and what would make the biggest difference.</p>
     <p class="expertise-subhead">That might mean an onboarding checklist your team can follow, a clearer office-to-field handoff, or a reporting routine that makes the next decision easier. We build around the tools that fit your business.</p>
+    <p class="expertise-subhead"><strong style="font-weight:400;color:var(--bone);">It does not have to be the whole operation.</strong> Plenty of work is one job: connecting two tools, rebuilding a report, or getting AI to handle a task that eats your week. Focused projects start at $750 and do not require an audit, a Blueprint, or anything after them.</p>
     <div style="margin-top:26px;font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--bone-muted);">Built around the way you already work</div>
     <div style="display:flex;flex-wrap:wrap;row-gap:10px;margin-top:14px;max-width:66ch;font-family:'Inter Tight',sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--bone-dim);">
       <span style="white-space:nowrap;">Google Workspace<span style="color:var(--teal);padding:0 14px;">·</span></span>
@@ -1853,8 +1857,19 @@
         <input type="text" id="business" name="business" required autocomplete="organization" placeholder="Restaurant, clinic, trades, retail, marina…">
       </div>
       <div class="field">
+        <label for="need">What do you need help with?</label>
+        <select id="need" name="need">
+          <option value="">Select one (optional)</option>
+          <option value="AI for a task">Making AI useful for a specific task</option>
+          <option value="Workflow or report">Fixing one workflow, integration, or report</option>
+          <option value="Whole operation">Organising the whole operation</option>
+          <option value="Training">Training for me or my team</option>
+          <option value="Not sure">Not sure yet — let’s talk</option>
+        </select>
+      </div>
+      <div class="field">
         <label for="note">What does the business look like?</label>
-        <textarea id="note" name="note" rows="3" placeholder="A few sentences on your operation and what you’d want out of the audit."></textarea>
+        <textarea id="note" name="note" rows="3" placeholder="A few sentences on your operation, or just the one thing you’d like to be easier."></textarea>
       </div>
       <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
       <button type="submit" class="submit" id="submitBtn">

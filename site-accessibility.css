@@ -54,3 +54,7 @@
 .pricing-grid .service-desc { font-size:16px; }
 #pricing, #process { scroll-margin-top:110px; }
 @media (max-width:480px) { .pricing-followup .about-cta { display:flex; justify-content:center; text-align:center; margin-right:0; letter-spacing:0.03em; } }
+
+/* Four pricing tiers: 2x2 above the mobile breakpoint so the fourth card does
+   not orphan under a hard three-column grid. Mobile stays one column. */
+@media (min-width: 881px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
