@@ -127,8 +127,8 @@
       <p>The Log, once a month: what’s working, what isn’t, and the systems behind it. No pitch, no filler.</p>
       <form class="newsletter-form" action="https://formspree.io/f/mykljkjo" method="POST">
         <input type="hidden" name="_subject" value="Newsletter signup — harborlogic.cc">
-        <input type="text" name="_gotcha" style="display:none" />
-        <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" autocomplete="email" placeholder="Your email address" required aria-label="Email address">
         <button type="submit">Subscribe</button>
       </form>
     </div>
