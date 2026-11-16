@@ -12,7 +12,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harbor Logic — Operations &amp; AI Consulting | Northern Michigan</title>
-<meta name="description" content="Harbor Logic is an operations consultancy in Northern Michigan. Operating systems, AI workflows, reporting, and fractional operations support for local businesses. Systems first. Tools second.">
+<meta name="description" content="Harbor Logic helps Northern Michigan small businesses improve onboarding, handoffs, and recurring work. Request a free 45-minute Operations Audit or explore AI workshops.">
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -1776,7 +1776,7 @@
       <p class="service-desc">Bring one recurring task. Leave with a better way to do it.</p>
       <span style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;margin-top:4px;">View Workshops <span class="arrow">&rarr;</span></span>
     </a>
-    <p class="service-desc" style="margin-top:20px;">Running an office? I also bring <a href="workshops.html#office-workshops" style="color:var(--teal);">a 60-minute workshop to your team</a>.</p>
+    <p class="service-desc" style="margin-top:20px;">Running an office? Explore <a href="workshops.html#office-workshops" style="color:var(--teal);">workshops for your team</a>, including a session for real estate agents.</p>
   </div>
 </section>
 
@@ -1834,7 +1834,7 @@
 
       <div style="display:flex;flex-wrap:wrap;row-gap:14px;margin:32px 0;font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--bone-muted);">
         <span style="white-space:nowrap;">20 yrs destination hospitality<span style="color:var(--teal);padding:0 14px;">·</span></span>
-        <span style="white-space:nowrap;">250+ staff seasons</span>
+        <span style="white-space:nowrap;">350 seasonal staff</span>
       </div>
 
       <div class="editorial-note">
@@ -1892,7 +1892,7 @@
     <p class="form-note">45 minutes. You’ll leave with your Five System Gaps scorecard — a clear picture of where the business leaks time, money, and knowledge, and exactly what to fix first. Limited spots each month — I take on a handful of builds at a time.</p>
 
     <p class="contact-help">Your audit is free, with no obligation to buy. If further help makes sense, I’ll explain the scope and price before you decide. <a href="services.html#pricing">View Services &amp; Pricing</a>.</p>
-    <p class="contact-help">I’ll reply within two business days to arrange your session. Prefer email? <a href="mailto:info@harborlogic.cc">info@harborlogic.cc</a></p>
+    <p class="contact-help">I’ll reply to arrange your session. Prefer email? <a href="mailto:info@harborlogic.cc">info@harborlogic.cc</a></p>
 
     <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
       <input type="hidden" name="_subject" value="Operations Audit request — harborlogic.cc">
@@ -1906,7 +1906,7 @@
       </div>
       <div class="field">
         <label for="business">Business</label>
-        <input type="text" id="business" name="business" required autocomplete="organization" placeholder="Restaurant, clinic, trades, retail, marina…">
+        <input type="text" id="business" name="business" required autocomplete="organization" placeholder="Your business name and type">
       </div>
       <div class="field">
         <label for="need">What do you need help with?</label>
@@ -1920,7 +1920,7 @@
         </select>
       </div>
       <div class="field">
-        <label for="note">What does the business look like?</label>
+        <label for="note">What would you like to make easier? (optional)</label>
         <textarea id="note" name="note" rows="3" placeholder="A few sentences on your operation, or just the one thing you’d like to be easier."></textarea>
       </div>
       <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
@@ -1983,7 +1983,7 @@
 
       if (response.ok) {
         status.className = 'form-status success';
-        status.textContent = 'Thanks — your audit request is in. I\'ll be in touch within two business days to book your session.';
+        status.textContent = 'Thanks — your audit request is in. I\'ll be in touch to book your session.';
         form.reset();
         submitText.textContent = 'Request Sent';
         if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'operations_audit' });
