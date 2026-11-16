@@ -43,6 +43,10 @@
     {
       "source": "/privacy",
       "destination": "/privacy.html"
+    },
+    {
+      "source": "/real-estate-workshop",
+      "destination": "/real-estate-workshop.html"
     }
   ]
 }

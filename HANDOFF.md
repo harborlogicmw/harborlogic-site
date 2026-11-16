@@ -36,6 +36,15 @@ builds a preview and is a safe way to confirm Vercel is responding.
 - `scripts/build-blog.js` regenerates the cards in `blog/index.html` and emits
   `class="article-card sr"`, so template changes must be mirrored there.
 
+- `real-estate-workshop.html` is a copy of the `workshops.html` shell (same inline
+  `<style>` block), so it is a fourth page to keep in step with CSS changes. Its
+  form reports `generate_lead` with `form_name` `real_estate_workshop`.
+- `index.html` has an `AUDIT_BOOKING_URL` constant in the form script. It holds the
+  Calendly link offered after an audit request; empty it to fall back to the
+  plain confirmation.
+- `site-ui.js` sends an `email_click` event (subject line only) when a `mailto:`
+  link is clicked.
+
 ## Validation
 
 - `node tools/check-build-blog.js` — 19 checks covering slug sanitisation,
