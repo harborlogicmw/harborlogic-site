@@ -1576,6 +1576,9 @@
     .contact-section .form-card { padding: 0; }
   }
   .editorial-note { margin-top: 32px; padding: 28px 0 0; border-top: 1px solid var(--bone-faint); }
+
+  .services-grid.two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 880px) { .services-grid.two-up { grid-template-columns: 1fr; } }
 </style><link rel="stylesheet" href="/site-accessibility.css?v=20260918">
 <noscript><style>
 @media (max-width: 880px) {
@@ -1657,7 +1660,7 @@
   </div>
 
   <!-- four lines: 2x2 rather than the shared 3-up, which would orphan the fourth -->
-  <div class="services-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,480px));">
+  <div class="services-grid two-up">
 
     <div class="service-card sr">
       <div class="service-step">Operating systems</div>

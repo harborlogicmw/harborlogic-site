@@ -888,9 +888,13 @@
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
   }
+  @media (min-width: 881px) and (max-width: 1100px) {
+    .store-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  #contact .form-note { font-size: 16px; line-height: 1.6; color: var(--bone-dim); margin-bottom: 16px; }
 
   .store-price {
     font-family: 'Inter Tight', sans-serif;
@@ -1888,7 +1892,7 @@
       <h3 class="service-name">Restaurant &amp; Bar Operations Bundle</h3>
       <p class="service-desc">Four independent workbooks for landed costs, beverage pricing, stock counts, and kitchen operations. Organize waste, scheduled labor, and invoices with fictional examples and setup instructions to get you started.</p>
       <p class="store-price">$49.99 <span>one-time</span></p>
-      <p class="service-desc">Tested in Excel for Windows; Excel sold separately. Manual entries, with no POS connection.</p>
+      <p class="service-desc" style="margin-bottom:22px;">Tested in Excel for Windows; Excel sold separately. Manual entries, with no POS connection.</p>
       <a href="https://www.etsy.com/listing/4577768775" target="_blank" rel="noopener noreferrer" class="store-cta" style="margin-top: auto;">
         <span>View bundle on Etsy</span><span class="arrow" aria-hidden="true">→</span>
       </a>
@@ -1920,11 +1924,10 @@
 <section class="contact-section" id="contact">
   <div class="form-card sr">
     <div class="form-label">Free Operations Audit</div>
-    <h2 class="form-title">Start with a free<br><em>audit.</em></h2>
+    <h2 class="form-title">Start with<br><em>a free audit.</em></h2>
     <p class="form-note">45 minutes. You’ll leave with your Five System Gaps scorecard — a clear picture of where the business leaks time, money, and knowledge, and exactly what to fix first. Limited spots each month.</p>
 
-    <p class="contact-help">Your audit is free, with no obligation to buy. If further help makes sense, I’ll explain the scope and price before you decide. <a href="services.html#pricing">View Services &amp; Pricing</a>.</p>
-    <p class="contact-help">I’ll reply to arrange your session. Prefer email? <a href="mailto:info@harborlogic.cc">info@harborlogic.cc</a></p>
+    <p class="contact-help">No obligation to buy. Any paid work is scoped and priced before you decide. Prefer email? <a href="mailto:info@harborlogic.cc">info@harborlogic.cc</a></p>
 
     <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
       <input type="hidden" name="_subject" value="Operations Audit request — harborlogic.cc">
