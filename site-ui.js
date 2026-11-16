@@ -102,3 +102,14 @@
     });
   });
 })();
+
+/* Count clicks on email links, so inquiries that start in an inbox are visible
+   in analytics. Sends only the link's subject line, never an address. */
+document.addEventListener('click', event => {
+  const link = event.target.closest && event.target.closest('a[href^="mailto:"]');
+  if (!link || typeof gtag !== 'function') return;
+  const match = /[?&]subject=([^&]*)/.exec(link.getAttribute('href'));
+  let subject = 'General';
+  try { if (match) subject = decodeURIComponent(match[1]); } catch (err) { /* keep default */ }
+  gtag('event', 'email_click', { link_subject: subject });
+});
