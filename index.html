@@ -888,9 +888,13 @@
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
   }
+  @media (min-width: 881px) and (max-width: 1100px) {
+    .store-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  #contact .form-note { font-size: 16px; line-height: 1.6; color: var(--bone-dim); margin-bottom: 16px; }
 
   .store-price {
     font-family: 'Inter Tight', sans-serif;
@@ -1575,6 +1579,9 @@
     .lede-sample-constraint { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.4; margin-bottom: 14px; }
     .lede-sample-foot a { font-size: 13px; color: var(--teal); text-decoration: none; }
     .lede-sample-foot a:hover, .lede-sample-foot a:focus-visible { text-decoration: underline; }
+    /* The hero already shows the scores at this width; the lower card keeps the constraint and quick wins. */
+    .outcome-scores, .outcome-scores-label { display: none !important; }
+    .outcome-rest { margin-top: 0 !important; padding-top: 0 !important; border-top: 0 !important; }
   }
 </style>
 <link rel="stylesheet" href="/site-accessibility.css?v=20260918">
@@ -1717,15 +1724,15 @@
     <p class="expertise-subhead">The free Audit is useful on its own. You get a scored view of the five system gaps, the one constraint that is actually holding the business back, and three practical quick wins you can act on whether or not we work together.</p>
   </div>
   <div style="max-width:720px;margin:0 auto;background:var(--ink-raised);border:1px solid var(--hairline);border-radius:12px;padding:28px 32px;" class="sr">
-    <div style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;">Five System Gaps · sample</div>
-    <div style="display:grid;gap:12px;font-size:14px;line-height:1.45;">
+    <div class="outcome-scores-label" style="font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;">Five System Gaps · sample</div>
+    <div class="outcome-scores" style="display:grid;gap:12px;font-size:14px;line-height:1.45;">
       <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline);padding-bottom:8px;"><span>Knowledge capture</span><span style="color:var(--teal);">2 / 5</span></div>
       <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline);padding-bottom:8px;"><span>Onboarding and training</span><span style="color:var(--teal);">3 / 5</span></div>
       <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline);padding-bottom:8px;"><span>Communication and decisions</span><span style="color:var(--teal);">4 / 5</span></div>
       <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline);padding-bottom:8px;"><span>Rhythm and accountability</span><span style="color:var(--teal);">3 / 5</span></div>
       <div style="display:flex;justify-content:space-between;"><span>Data and visibility</span><span style="color:var(--teal);">2 / 5</span></div>
     </div>
-    <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--hairline);">
+    <div class="outcome-rest" style="margin-top:22px;padding-top:18px;border-top:1px solid var(--hairline);">
       <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bone-muted);margin-bottom:6px;">Main constraint</div>
       <div style="font-family:'Fraunces',serif;font-size:18px;margin-bottom:14px;">The same questions keep coming back to the same person.</div>
       <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bone-muted);margin-bottom:8px;">Three quick wins</div>
@@ -1736,9 +1743,8 @@
       </ul>
     </div>
   </div>
-  <div class="pricing-followup" style="margin-top:28px;">
-    <a href="#contact" class="about-cta">Request Your Free Operations Audit</a>
-    <p style="margin-top:12px;">The scorecard and quick wins are yours. No obligation to continue.</p>
+  <div class="pricing-followup" style="margin-top:28px;max-width:720px;margin-left:auto;margin-right:auto;text-align:center;">
+    <p>The scorecard and quick wins are yours. No obligation to continue.</p>
   </div>
 </section>
 
@@ -1792,9 +1798,7 @@
     </div>
   </div>
   <div class="pricing-followup">
-    <a href="#contact" class="about-cta">Request Your Free Operations Audit</a>
     <a href="services.html#pricing" class="about-cta">View Services &amp; Pricing</a>
-    <p>The audit is free. Any paid work is explained and agreed before it begins.</p>
   </div>
 </section>
 
@@ -1820,10 +1824,6 @@
       </div>
 
       <p class="about-closer">Your business shouldn’t depend on one person remembering. Let’s fix that.</p>
-      <a href="#contact" class="about-cta">
-        <span>Request your free audit</span>
-        <span class="arrow">→</span>
-      </a>
     </div>
   </div>
 </section>
@@ -1892,7 +1892,7 @@
       <h3 class="service-name">Restaurant &amp; Bar Operations Bundle</h3>
       <p class="service-desc">Four independent workbooks for landed costs, beverage pricing, stock counts, and kitchen operations. Organize waste, scheduled labor, and invoices with fictional examples and setup instructions to get you started.</p>
       <p class="store-price">$49.99 <span>one-time</span></p>
-      <p class="service-desc">Tested in Excel for Windows; Excel sold separately. Manual entries, with no POS connection.</p>
+      <p class="service-desc" style="margin-bottom:22px;">Tested in Excel for Windows; Excel sold separately. Manual entries, with no POS connection.</p>
       <a href="https://www.etsy.com/listing/4577768775" target="_blank" rel="noopener noreferrer" class="store-cta" style="margin-top: auto;">
         <span>View bundle on Etsy</span><span class="arrow" aria-hidden="true">→</span>
       </a>
@@ -1924,11 +1924,10 @@
 <section class="contact-section" id="contact">
   <div class="form-card sr">
     <div class="form-label">Free Operations Audit</div>
-    <h2 class="form-title">Start with a free<br><em>audit.</em></h2>
+    <h2 class="form-title">Start with<br><em>a free audit.</em></h2>
     <p class="form-note">45 minutes. You’ll leave with your Five System Gaps scorecard — a clear picture of where the business leaks time, money, and knowledge, and exactly what to fix first. Limited spots each month.</p>
 
-    <p class="contact-help">Your audit is free, with no obligation to buy. If further help makes sense, I’ll explain the scope and price before you decide. <a href="services.html#pricing">View Services &amp; Pricing</a>.</p>
-    <p class="contact-help">I’ll reply to arrange your session. Prefer email? <a href="mailto:info@harborlogic.cc">info@harborlogic.cc</a></p>
+    <p class="contact-help">No obligation to buy. Any paid work is scoped and priced before you decide. Prefer email? <a href="mailto:info@harborlogic.cc">info@harborlogic.cc</a></p>
 
     <form id="contactForm" action="https://formspree.io/f/mykljkjo" method="POST">
       <input type="hidden" name="_subject" value="Operations Audit request — harborlogic.cc">
